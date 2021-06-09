@@ -159,15 +159,17 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 " LSP
-nnoremap <leader>f :lua vim.lsp.buf.formatting_sync(nil, 2500)<CR>
+nnoremap <leader>ff :lua vim.lsp.buf.formatting_sync(nil, 2500)<CR>
 
 " Git Fugitive
 nmap <leader>gs  :G<CR>
 nmap <leader>gd :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gb :Git branch<CR>
-nmap <leader>gp :Git push<CR>
-nmap <leader>gpp :Git pull<CR>
+nmap <leader>gp :lua vim.api.nvim_command("Git push origin " .. vim.fn.input("Push branch > "))<CR>
+nmap <leader>gph :Git push origin HEAD<CR>
+nmap <leader>gpp :lua vim.api.nvim_command("Git pull origin " .. vim.fn.input("Pull branch > "))<CR>
 nmap <leader>gc :Git commit<CR>
 nmap <leader>gcc :lua vim.api.nvim_command("Git checkout " .. vim.fn.input("Branch to checkout > "))<CR>
+nmap <leader>gccb :lua vim.api.nvim_command("Git checkout -b " .. vim.fn.input("Branch to checkout (-b) > "))<CR>
 
