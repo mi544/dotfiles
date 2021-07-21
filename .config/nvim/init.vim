@@ -32,8 +32,10 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|
 set shortmess+=c
 
-" netrw copy fix 
+" keep only one working dir a time in netrw
 let g:netrw_keepdir = 0
+" change default copy command to allow recursive copying
+let g:netrw_localcopydircmd = 'cp -r'
 
 " Vue `-` symbol doesn't break highlighting
 " set iskeyword+=-
@@ -57,6 +59,10 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
+Plug 'jremmen/vim-ripgrep'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " update the parsers on update
+Plug 'nvim-treesitter/playground'
 " Prettier
 " Plug 'sbdchd/neoformat'
 
@@ -170,6 +176,25 @@ require'lspconfig'.vuels.setup{
 }
 EOF
 
+
+lua << EOF
+require'nvim-treesitter.configs'.setup{
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
+  ensure_installed = {
+    'javascript',
+    'vue',
+    'lua',
+    'json',
+    'html',
+    'scss',
+  }
+}
+EOF
 let mapleader = " "
 
 " Utils
@@ -224,3 +249,6 @@ nnoremap <leader>tt :! yarn test:unit %:p<CR>
 
 " Misc
 nnoremap <leader>n :noh<CR>
+
+" Renaming tags
+nnoremap <leader>tgr :lua require('mi.utils').tagRenamePrompt()<CR>
