@@ -2,51 +2,39 @@ local utils = {}
 
 function utils.findAndReplaceTag(oldTagName, newTagName)
   print('Starting find a replace for' .. oldTagName .. 'to ' .. newTagName)
-
   -- "<d-button "
   print('Finding "<' .. oldTagName .. ' " ...')
   vim.cmd('Rg "<' .. oldTagName .. ' "')
-
   -- "<d-button " -> "<DButton "
   print('Replacing and saving ...')
   vim.cmd([[cdo s/<]] .. oldTagName .. [[ /<]] .. newTagName .. [[ / | w]])
-
   -- "<d-button$"
   print('Finding "<' .. oldTagName .. '$" ...')
   vim.cmd('Rg "<' .. oldTagName .. '$"')
-
-  -- "<d-button$" -> "<DButton"
   print('Replacing and saving ...')
   vim.cmd([[cdo s/<]] .. oldTagName .. [[$/<]] .. newTagName .. [[/ | w]])
-
   -- "<d-button>"
   print('Finding "<' .. oldTagName .. '>" ...')
   vim.cmd('Rg "<' .. oldTagName .. '>"')
-
   -- "<d-button>" -> "<DButton>"
   print('Replacing and saving ...')
   vim.cmd([[cdo s/<]] .. oldTagName .. [[>/<]] .. newTagName .. [[>/ | w]])
-  
   -- "</d-button>"
   print('Finding "</' .. oldTagName .. '>" ...')
   vim.cmd('Rg "</' .. oldTagName .. '>"')
-  
   -- "</d-button>  -> "</DButton>"
   print('Replacing and saving ...')
   vim.cmd([[cdo s/<\/]] .. oldTagName .. [[>/<\/]] .. newTagName .. [[>/ | w]])
-
   -- "'d-button'"
   print('Finding "\'' .. oldTagName .. '\'" ...')
   vim.cmd('Rg "\'' .. oldTagName .. '\'"')
-  
   -- "'d-button'  -> "'DButton'"
   print('Replacing and saving ...')
   vim.cmd([[cdo s/']] .. oldTagName .. [['/']] .. newTagName .. [['/ | w]])
-
   print('Done!')
 end
 
-function utils.tagRenamePrompt()
+function utils.tagRenameAutomated()
   local tags = {
     {'d-phone-input', 'DPhoneInput'},
     {'d-filter-menu', 'DFilterMenu'},
@@ -92,6 +80,12 @@ function utils.tagRenamePrompt()
   for a = 1, #(tags) do
     utils.findAndReplaceTag(tags[a][1], tags[a][2])
   end
+end
+
+function utils.tagRenamePrompt()
+  local oldTag = vim.fn.input("Old tag name > ")
+  local newTag = vim.fn.input("New tag name > ")
+    utils.findAndReplaceTag(oldTag, newTag)
 end
 
 return utils
