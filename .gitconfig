@@ -1,5 +1,5 @@
-[init]
-	defaultBranch = main
 [user]
 	email = sd32@protonmail.com
 	name = Maksim Verkhoturov
+[init]
+	defaultBranch = main
