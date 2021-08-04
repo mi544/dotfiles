@@ -154,13 +154,14 @@ require'lspconfig'.vuels.setup{
       vetur = {
         completion = {
           tagCasing = "pascal",
+          useScaffoldSnippets = true, 
         },
         format = {
           defaultFormatter = {
-            html = "prettier",
-            css = "prettier", 
-            js = "prettier-eslint",
-            sass = "sass-formatter",
+            html = "none",
+            css = "none", 
+            js = "none",
+            sass = "none",
           },
           options = {
             useTabs = false,
@@ -240,7 +241,8 @@ nmap <leader>gh :diffget //3<CR>
 nmap <leader>gb :Git branch<CR>
 nmap <leader>gp :lua vim.api.nvim_command("Git push origin " .. vim.fn.input("Push branch > "))<CR>
 nmap <leader>gph :Git push origin HEAD<CR>
-nmap <leader>gpp :lua vim.api.nvim_command("Git pull origin " .. vim.fn.input("Pull branch > "))<CR>
+nmap <leader>gpp :Git pull<CR>
+nmap <leader>gppb :lua vim.api.nvim_command("Git pull origin " .. vim.fn.input("Pull branch > "))<CR>
 nmap <leader>gc :Git commit<CR>
 nmap <leader>gcc :lua vim.api.nvim_command("Git checkout " .. vim.fn.input("Branch to checkout > "))<CR>
 nmap <leader>gccb :lua vim.api.nvim_command("Git checkout -b " .. vim.fn.input("Branch to checkout (-b) > "))<CR>
