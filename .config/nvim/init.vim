@@ -118,23 +118,25 @@ local eslint = {
 }
 
 require'lspconfig'.efm.setup{
-  root_dir = require'lspconfig'.util.root_pattern(".prettierrc", ".git"),
+  root_dir = require'lspconfig'.util.root_pattern(".git", ".eslintrc.js", ".prettierrc"),
   on_attach = function(client)
     client.resolved_capabilities.goto_definition = false
   end,
   init_options = { documentFormatting = true },
   settings = {
-    rootMarkers = { "remaxweb/", ".git/" },
+    rootMarkers = {".git/", ".eslintrc.js", ".prettierrc"},
     languages = {
       javascript = { prettier, eslint },
+      typescript = { prettier, eslint },
+      vue = { eslint },
       json = { prettier, eslint },
-  	  vue = { eslint },
     }
   },
   filetypes = {
     "javascript",
-    "json",
+    "typescript",
     "vue",
+    "json",
   },
 }
 
@@ -148,7 +150,7 @@ require'lspconfig'.tsserver.setup{
 }
 
 require'lspconfig'.vuels.setup{
-  root_dir = require'lspconfig'.util.root_pattern(".prettierrc", ".git"),
+  root_dir = require'lspconfig'.util.root_pattern(".git", ".eslintrc.js", ".prettierrc"),
   init_options = {
     config = {
       vetur = {
