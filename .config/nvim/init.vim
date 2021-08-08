@@ -129,7 +129,7 @@ require'lspconfig'.efm.setup{
       javascript = { prettier, eslint },
       typescript = { prettier, eslint },
       vue = { eslint },
-      json = { prettier, eslint },
+      json = { prettier },
     }
   },
   filetypes = {
