@@ -14,13 +14,13 @@ $ stow <package> # ex: stow nvim
 To save/load configuration for GNOME3, use `dconf`  
 
 #### Save:
-```bash
+```shell
 cd
 dconf dump / > saved_settings.dconf
 ```
 
 #### Load:
-```bash
+```shell
 cd
 dconf load / < saved_settings.dconf
 ```
