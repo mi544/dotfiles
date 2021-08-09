@@ -234,6 +234,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 " LSP
+inoremap <silent><expr> <C-CR> compe#confirm('<CR>')
 nnoremap <leader>ff :lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>
 
 " Git Fugitive
