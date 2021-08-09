@@ -24,3 +24,16 @@ dconf dump / > saved_settings.dconf
 cd
 dconf load / < saved_settings.dconf
 ```
+
+## Node
+
+Node versioning is handled through [Volta](https://volta.sh/).  
+
+Here's a list of packages needed to be installed:
+
+```
+npm-check-updates serve netlify-cli
+lerna
+eslint eslint_d prettier
+typescript typescript-language-server vls
+```
