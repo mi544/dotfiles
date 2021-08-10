@@ -3,3 +3,5 @@
 	name = Maksim Verkhoturov
 [init]
 	defaultBranch = main
+[core]
+	editor = vim
