@@ -32,10 +32,11 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|
 set shortmess+=c
 
-" keep only one working dir a time in netrw
+" change working directory when browsing in netrw
 let g:netrw_keepdir = 0
 " change default copy command to allow recursive copying
 let g:netrw_localcopydircmd = 'cp -r'
+let g:netrw_localmkdir = 'mkdir -p'
 
 " Vue `-` symbol doesn't break highlighting
 " set iskeyword+=-
