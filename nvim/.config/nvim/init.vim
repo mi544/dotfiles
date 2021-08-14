@@ -49,6 +49,10 @@ Plug 'vim-airline/vim-airline'
 " Autocomplete and LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'sheerun/vim-polyglot'
+
+" Undotree
+Plug 'mbbill/undotree'
 
 " Themes
 Plug 'ayu-theme/ayu-vim'
@@ -203,6 +207,8 @@ require'nvim-treesitter.configs'.setup{
 EOF
 let mapleader = " "
 
+inoremap <C-c> <esc>
+
 " Utils
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
@@ -237,6 +243,7 @@ vnoremap K :m '<-2<CR>gv=gv
 " LSP
 inoremap <silent><expr> <C-CR> compe#confirm('<CR>')
 nnoremap <leader>ff :lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>
+nnoremap <leader>ld :lua vim.lsp.diagnostic.set_loclist()<CR>
 
 " Git Fugitive
 nmap <leader>gs  :G<CR>

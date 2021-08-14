@@ -1,0 +1,86 @@
+[bar/mybar]
+modules-right = date battery
+modules-left = bspwm
+
+[module/date]
+type = internal/date
+date =  %Y-%m-%d %r 
+# date = %{B#fff F#aaa} %Y-%m-%d %r %{F- B-} yo
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+[module/bspwm]
+type = internal/bspwm
+
+; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
+; Only show workspaces defined on the same output as the bar
+; But if you rename your bspwm monitors with bspc -n this option will no longer
+; behave correctly.
+; Default: true
+pin-workspaces = true
+
+; Output mode flags after focused state label
+; Default: false
+inline-mode = false
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = false
+
+; Set the scroll cycle direction
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+label-focused = %name%
+label-focused-background = #c32345
+label-focused-foreground = #4a101d
+label-focused-underline = #4a101d
+label-focused-border = 4
+label-focused-border-color = #4a101d
+label-focused-padding = 1
+
+label-occupied = %name%*
+label-occupied-padding = 1
+
+label-urgent = %name%!
+label-urgent-background = #121212
+label-urgent-underline = #fcef81
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = #CBCCC6
+label-empty-padding = 1
+
+; Separator in between workspaces
+; label-separator = |
