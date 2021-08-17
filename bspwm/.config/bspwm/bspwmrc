@@ -7,7 +7,7 @@ gammy &
 fcitx -d &
 
 ### MONITORS ###
-bspc monitor -d 1 2 3 4 5
+bspc monitor -d 1 2 3 8 9 0
 
 ### BSPWM configuration ###
 bspc config border_width 2
@@ -39,17 +39,18 @@ bspc config presel_feedback_color "#5e81ac"
 bspc config urgent_border_color "#dd2727"
 
 # focus options
-bspc config focus_follows_pointer false 
+bspc config focus_follows_pointer false
 bspc config pointer_follows_monitor false
 bspc config pointer_follows_focus false
 bspc config focus_by_distance true
 bspc config history_aware_focus false
 
 ### BSPWM RULES ###
-bspc rule -a gammy desktop=^5
-bspc rule -a Screenkey manage=off
-bspc rule -a 'Alacritty:alsamixer' state=floating
-
+bspc rule -a gammy desktop=^6
+# bspc rule -a 'zoom:zoom' state=floating
+bspc rule -a Pavucontrol state=floating
+bspc rule -a 'firefoxdeveloperedition:Devtools' state=floating
+bspc rule -a 'firefox:Toolkit' state=floating
 
 # adjusts cursor on root screen
 xsetroot -cursor_name left_ptr &
