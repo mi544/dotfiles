@@ -212,9 +212,6 @@ inoremap <C-c> <esc>
 " Utils
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
-" LSP
-nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
-
 " Navigation
 nnoremap <leader>pv :Vex<CR>
 
@@ -242,8 +239,10 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " LSP
 inoremap <silent><expr> <C-CR> compe#confirm('<CR>')
+nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>ff :lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>
 nnoremap <leader>ld :lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <leader>k :lua vim.lsp.buf.hover()<CR>
 
 " Git Fugitive
 nmap <leader>gs  :G<CR>
@@ -259,8 +258,9 @@ nmap <leader>gcc :lua vim.api.nvim_command("Git checkout " .. vim.fn.input("Bran
 nmap <leader>gccb :lua vim.api.nvim_command("Git checkout -b " .. vim.fn.input("Branch to checkout (-b) > "))<CR>
 
 " yarn testing
-nnoremap <leader>wd :cd ~/peak<CR>
+nnoremap <leader>cdp :cd ~/projects/peak<CR>
 nnoremap <leader>tt :! yarn test:unit %:p<CR>
+nnoremap <leader>tu :! yarn test:unit -u %:p<CR>
 
 " Misc
 nnoremap <leader>n :noh<CR>

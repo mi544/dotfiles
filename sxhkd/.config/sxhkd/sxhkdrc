@@ -122,11 +122,15 @@ alt + {Left,Down,Up,Right}
 super + r
   firefox
 
-# Alsamixer 
+# Firefox Dev Edition
+super + t
+  firefox-developer-edition
+
+# pavucontrol
 super + m
   pavucontrol
 
-# Alsamixer 
+# Qalc
 super + c
   alacritty --class qalc -e qalc
 
