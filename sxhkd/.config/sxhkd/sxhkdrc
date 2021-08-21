@@ -122,6 +122,14 @@ alt + {Left,Down,Up,Right}
 Print
   gnome-screenshot
 
+# Raise volume
+super + a
+  $HOME/bash-scripts/raise-volume.sh
+
+# Lower volume
+super + z
+  $HOME/bash-scripts/lower-volume.sh
+
 ### APP SHORTCUTS ###
 
 # Firefox
