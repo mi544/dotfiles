@@ -116,6 +116,12 @@ alt + shift + shift + {h,j,k,l}
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+### APP ACTIONS ###
+
+# Screenshot
+Print
+  gnome-screenshot
+
 ### APP SHORTCUTS ###
 
 # Firefox

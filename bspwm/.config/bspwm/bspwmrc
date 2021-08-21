@@ -51,9 +51,11 @@ bspc rule -a gammy desktop=^6
 bspc rule -a Pavucontrol state=floating
 bspc rule -a 'firefoxdeveloperedition:Devtools' state=floating
 bspc rule -a 'firefox:Toolkit' state=floating
+bspc rule -a 'Alacritty:qalc' state=floating
 
 # adjusts cursor on root screen
 xsetroot -cursor_name left_ptr &
 
 # polybar hidden when fullscreen for vlc, youtube, mpv, etc.
 xdo below -t $(xdo id -n root) $(xdo id -a eDP1)
+

@@ -1,11 +1,48 @@
-[bar/mybar]
-modules-right = temperature date pulseaudio battery
-modules-left = bspwm
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+[colors]
+background = #000
+foreground = #fff
+
+[bar/main]
+modules-left = bspwm xwindow
+modules-right = date temperature pulseaudio battery
+
+monitor = eDP1
+monitor-fallback =
+monitor-strict = false
+monitor-exact = true 
+override-redirect = true
+wm-restack = bspwm
+enable-ipc = true
+separator = |
+
+width = 100%
+height = 32
+offset-x = 0
+offset-y = 0
+radius = 0.0
+
+backgroud = ${colors.backgroud}
+foreground = ${colors.foreground}
+
+padding-left = 2
+padding-right = 0
+# padding = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Fira Sans Book:pixelsize=16.5;
+# font-1 = HackerNerdFont:pixelsize=10;
+
+pseudo-transparency = true
 
 [module/date]
 type = internal/date
 date =  %Y-%m-%d %r 
-# date = %{B#fff F#aaa} %Y-%m-%d %r %{F- B-} yo
 
 [module/battery]
 type = internal/battery
@@ -79,34 +116,10 @@ click-right = pavucontrol
 [module/bspwm]
 type = internal/bspwm
 
-; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
-; Only show workspaces defined on the same output as the bar
-; But if you rename your bspwm monitors with bspc -n this option will no longer
-; behave correctly.
-; Default: true
 pin-workspaces = true
-
-; Output mode flags after focused state label
-; Default: false
 inline-mode = false
-
-; Create click handler used to focus workspace
-; Default: true
-enable-click = false
-
-; Create scroll handlers used to cycle workspaces
-; Default: true
+enable-click = true
 enable-scroll = false
-
-; Set the scroll cycle direction
-; Default: true
-reverse-scroll = false
-
-; Use fuzzy (partial) matching on labels when assigning
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces
-; containing 'code' in the label
-; Default: false
 fuzzy-match = true
 
 label-focused = %name%
@@ -129,33 +142,17 @@ label-empty = %name%
 label-empty-foreground = #CBCCC6
 label-empty-padding = 1
 
-; Separator in between workspaces
-; label-separator = |
-
 [module/temperature]
 type = internal/temperature
 
-; Seconds to sleep between updates
-; Default: 1
 interval = 0.5
 
-; Thermal zone to use
-; To list all the zone types, run 
 ; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-; Default: 0
-thermal-zone = 0
+thermal-zone = 1
 
-; Full path of temperature sysfs path
-; Use `sensors` to find preferred temperature source, then run
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
-; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon8/temp1_input
+hwmon-path = /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon5/temp1_input
 
-; Base temperature for where to start the ramp (in degrees celsius)
-; Default: 0
 base-temperature = 20
-
-; Threshold temperature to display warning label (in degrees celsius)
-; Default: 80
 warn-temperature = 60
