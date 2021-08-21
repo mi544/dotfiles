@@ -3,12 +3,16 @@ margin-bottom = 0
 margin-top = 0
 
 [colors]
-background = #000
-foreground = #fff
+background = #005c5c
+background-alt = #cbbae9
+foreground = #f5ffff
+foreground-inversed = #112
+active = #52ffff
+alert = #d23b22
 
 [bar/main]
-modules-left = bspwm xwindow
-modules-right = date temperature pulseaudio battery
+modules-left = bspwm
+modules-right = weather sep-3 date sep-1 cpu-temp sep-3 pulseaudio sep-2 battery
 
 monitor = eDP1
 monitor-fallback =
@@ -17,101 +21,29 @@ monitor-exact = true
 override-redirect = true
 wm-restack = bspwm
 enable-ipc = true
-separator = |
+separator =
 
 width = 100%
-height = 32
+height = 35
 offset-x = 0
 offset-y = 0
-radius = 0.0
+radius = 13
+fixed-center = false
 
-backgroud = ${colors.backgroud}
+background = ${colors.background}
 foreground = ${colors.foreground}
 
-padding-left = 2
-padding-right = 0
+padding-left = 1
+padding-right = 2
 # padding = 0
 
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Fira Sans Book:pixelsize=16.5;
+font-0 = Fira Sans Book:pixelsize=16;
 # font-1 = HackerNerdFont:pixelsize=10;
 
 pseudo-transparency = true
-
-[module/date]
-type = internal/date
-date =  %Y-%m-%d %r 
-
-[module/battery]
-type = internal/battery
-
-; This is useful in case the battery never reports 100% charge
-full-at = 99
-
-; Use the following command to list batteries and adapters:
-; $ ls -1 /sys/class/power_supply/
-battery = BAT0
-adapter = ADP1
-
-; If an inotify event haven't been reported in this many
-; seconds, manually poll for new values.
-;
-; Needed as a fallback for systems that don't report events
-; on sysfs/procfs.
-;
-; Disable polling by setting the interval to 0.
-;
-; Default: 5
-poll-interval = 5
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
-; If not, uses default sink
-sink = alsa_output.pci-0000_12_00.3.analog-stereo
-
-; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
-; Default: true
-use-ui-max = true
-
-; Interval for volume increase/decrease (in percent points)
-; Default: 5
-interval = 5
-
-; Available tags:
-;   <label-volume> (default)
-;   <ramp-volume>
-;   <bar-volume>
-format-volume = <ramp-volume> <label-volume>
-
-; Available tags:
-;   <label-muted> (default)
-;   <ramp-volume>
-;   <bar-volume>
-;format-muted = <label-muted>
-
-; Available tokens:
-;   %percentage% (default)
-;   %decibels%
-;label-volume = %percentage%%
-
-; Available tokens:
-;   %percentage% (default)
-;   %decibels%
-label-muted = 🔇 muted
-label-muted-foreground = #666
-
-; Only applies if <ramp-volume> is used
-ramp-volume-0 = 🔈
-ramp-volume-1 = 🔉
-ramp-volume-2 = 🔊
-
-; Right and Middle click
-click-right = pavucontrol
-; click-middle = 
 
 [module/bspwm]
 type = internal/bspwm
@@ -123,36 +55,88 @@ enable-scroll = false
 fuzzy-match = true
 
 label-focused = %name%
-label-focused-background = #c32345
-label-focused-foreground = #4a101d
-label-focused-underline = #4a101d
-label-focused-border = 4
-label-focused-border-color = #4a101d
-label-focused-padding = 1
+label-focused-background = ${colors.active}
+label-focused-foreground = ${colors.foreground-inversed}
+label-focused-padding = 2
 
-label-occupied = %name%*
-label-occupied-padding = 1
+label-occupied = %name%
+label-occupied-foreground = ${colors.foreground}
+label-occupied-padding = 2
 
-label-urgent = %name%!
-label-urgent-background = #121212
-label-urgent-underline = #fcef81
-label-urgent-padding = 1
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
 
 label-empty = %name%
-label-empty-foreground = #CBCCC6
-label-empty-padding = 1
+label-empty-foreground = #4fb9c0
+label-empty-padding = 2
 
-[module/temperature]
+[module/date]
+type = internal/date
+date = "%d %b, %a"
+time = " %l:%M %p"
+interval = 1
+label = "   %date%%time%   "
+format-padding = 1
+label-background = ${colors.background-alt}
+label-foreground = ${colors.foreground-inversed}
+
+[module/battery]
+type = internal/battery
+full-at = 99
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+poll-interval = 5
+
+[module/pulseaudio]
+type = internal/pulseaudio
+; `pacmd list-sinks`
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+interval = 3
+click-right = pavucontrol
+
+format-volume = <label-volume>
+format-muted = <label-muted>
+format-volume-background = ${colors.background-alt}
+format-volume-foreground = ${colors.foreground-inversed}
+
+label-volume = "  %percentage%%  "
+label-muted = "  M  "
+label-muted-foreground = ${colors.alert}
+
+[module/sep-3]
+type = custom/text
+content = "   "
+[module/sep-2]
+type = custom/text
+content = "  "
+[module/sep-1]
+type = custom/text
+content = " "
+[module/sep-i]
+type = custom/text
+content = "·"
+
+[module/cpu-temp]
 type = internal/temperature
-
 interval = 0.5
-
-; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-thermal-zone = 1
-
-; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-; to find path to desired file
+; `for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done`
+thermal-zone = 0
+; `for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done`
 hwmon-path = /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon5/temp1_input
-
 base-temperature = 20
-warn-temperature = 60
+warn-temperature = 65
+
+format = <label>
+format-warn = <label-warn>
+format-warn-underline = ${colors.alert}
+
+label = "CPU %temperature-c%"
+label-warn = "CPU %temperature-c%!"
+
+[module/weather]
+type = custom/script
+interval = 300
+exec = $HOME/.config/polybar/weather.sh
