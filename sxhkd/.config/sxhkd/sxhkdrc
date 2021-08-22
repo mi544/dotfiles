@@ -148,3 +148,7 @@ super + m
 super + c
   alacritty --class qalc -e qalc
 
+# Nitrogen
+super + n
+  nitrogen
+
