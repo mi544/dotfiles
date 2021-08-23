@@ -152,3 +152,7 @@ super + c
 super + n
   nitrogen
 
+# Nautilus
+super + f
+  nautilus
+

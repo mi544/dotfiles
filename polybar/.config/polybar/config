@@ -11,8 +11,8 @@ active = #52ffff
 alert = #d23b22
 
 [bar/main]
-modules-left = bspwm
-modules-right = weather sep-3 date sep-1 cpu-temp sep-3 pulseaudio sep-2 battery
+modules-left = sep-1 bspwm
+modules-right = weather sep-3 date sep-1 cpu-temp sep-3 pulseaudio sep-2 battery sep-1
 
 monitor = eDP1
 monitor-fallback =
@@ -23,11 +23,11 @@ wm-restack = bspwm
 enable-ipc = true
 separator =
 
-width = 100%
+width = 80%
 height = 35
-offset-x = 0
-offset-y = 0
-radius = 13
+offset-x = 10%
+offset-y = 4
+radius = 18
 fixed-center = false
 
 background = ${colors.background}
@@ -103,7 +103,7 @@ format-volume-background = ${colors.background-alt}
 format-volume-foreground = ${colors.foreground-inversed}
 
 label-volume = "  %percentage%%  "
-label-muted = "  M  "
+label-muted = "     M     "
 label-muted-foreground = ${colors.alert}
 
 [module/sep-3]
@@ -134,7 +134,7 @@ format-warn = <label-warn>
 format-warn-underline = ${colors.alert}
 
 label = "CPU %temperature-c%"
-label-warn = "CPU %temperature-c%!"
+label-warn = "!CPU %temperature-c%!"
 
 [module/weather]
 type = custom/script
