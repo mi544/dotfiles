@@ -9,7 +9,7 @@ gammy &
 fcitx -d &
 
 ### MONITORS ###
-bspc monitor -d 1 2 3 8 9 0
+bspc monitor -d 1 2 3 8 9 0 -
 
 ### BSPWM configuration ###
 bspc config border_width 3
