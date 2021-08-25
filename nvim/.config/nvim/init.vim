@@ -49,7 +49,6 @@ Plug 'vim-airline/vim-airline'
 " Autocomplete and LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-Plug 'sheerun/vim-polyglot'
 
 " Undotree
 Plug 'mbbill/undotree'
