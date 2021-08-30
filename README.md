@@ -22,6 +22,81 @@ eslint eslint_d prettier
 typescript typescript-language-server vls
 ```
 
-## Packages to install
+## Packages to install (WIP)
 
-TBD  
+Installation:
+```
+intel-ucode
+```
+
+Terminal:
+```
+alacritty
+asciiquarium
+asciidoc
+bash-completion
+cmatrix
+cool-retro-term
+figlet
+htop
+lolcat
+man-db
+man-pages
+neofetch
+screenfetch
+tldr
+```
+
+WM:
+
+```
+bspwm
+rofi
+
+```
+
+Utils:
+```
+curl
+wget
+ffmpeg
+gnome-screenshot
+go
+imagemagick
+iputils
+lua
+volta
+ufw
+```
+
+Apps:
+```
+discord
+firefox
+firefox-developer-edition
+gimp
+insomnia-bin
+obs-studio
+qbittorrent
+rustdesk-bin
+slack-desktop
+steam
+telegram-desktop
+vlc
+zoom-system-qt
+```
+
+Fonts:
+```
+gnu-free-fonts
+```
+
+Potentially(?):
+```
+dvd+rw-tools
+nautilus
+terminus-font
+```
+
+TBD: alsa, pulse (with mixers), bluez, networkmanager, wine,
+intel video (installation), japanese fonts
