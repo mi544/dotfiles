@@ -134,6 +134,7 @@ require'lspconfig'.efm.setup{
       typescript = { prettier, eslint },
       vue = { eslint },
       json = { prettier },
+      markdown = { prettier },
     }
   },
   filetypes = {
@@ -141,6 +142,7 @@ require'lspconfig'.efm.setup{
     "typescript",
     "vue",
     "json",
+    "markdown",
   },
 }
 
