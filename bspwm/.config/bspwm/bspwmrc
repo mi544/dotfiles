@@ -54,11 +54,8 @@ bspc rule -a 'firefoxdeveloperedition:Devtools' state=floating
 bspc rule -a 'firefox:Toolkit' state=floating
 bspc rule -a 'Alacritty:qalc' state=floating
 bspc rule -a 'Nitrogen' state=floating
+bspc rule -a 'Org.gnome.Nautilus' state=floating
 bspc rule -a 'zoom' state=floating
 
 # adjusts cursor on root screen
 xsetroot -cursor_name left_ptr &
-
-# polybar hidden when fullscreen for vlc, youtube, mpv, etc.
-xdo below -t $(xdo id -n root) $(xdo id -a eDP1)
-
