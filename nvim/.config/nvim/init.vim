@@ -210,44 +210,73 @@ require'nvim-treesitter.configs'.setup{
 EOF
 let mapleader = " "
 
+" ~~~~~~~~~~~~~~~~~~~~~~
+" UTILITIES
+" ~~~~~~~~~~~~~~~~~~~~~~
+" C-c acts like esc
 inoremap <C-c> <esc>
-
-" Utils
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
-" Navigation
-nnoremap <leader>pv :Vex<CR>
+nnoremap <leader>n :noh<CR>
 
+" Project Navigation
+nnoremap <leader>pv :Vex<CR>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 nnoremap <leader>pf :lua require('telescope.builtin').find_files()<CR>
-
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 
 " Quickfix List
-nnoremap <C-j> :cnext<CR>
-nnoremap <C-k> :cprev<CR>
+nnoremap <C-j> :cnext<CR>zzzv
+nnoremap <C-k> :cprev<CR>zzzv
 
-" Copying-pasting
+" ~~~~~~~~~~~~~~~~~~~~~~
+" COPYING-PASTING
+" ~~~~~~~~~~~~~~~~~~~~~~
 vnoremap <leader>p "_dP
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
-nnoremap <leader>Y gg"+yG
+" expected behavior for Y
+nnoremap Y y$
+nnoremap <leader>Y gg"+y$
 
-" Line manipulation
+" Keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo breakpoints
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?gc-g>u
+
+" Jumplist records relative moves (jk)
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" Moving lines of text in all modes
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+"nnoremap <leader>j :m .+1<CR>==
+"nnoremap <leader>k :m .-2<CR>==
+"inoremap <C-j> <esc>:m .+1<CR>==<insert>
+"inoremap <C-k> <esc>:m .-2<CR>==<insert>
 
+" ~~~~~~~~~~~~~~~~~~~~~~
 " LSP
-inoremap <silent><expr> <C-CR> compe#confirm('<CR>')
+" ~~~~~~~~~~~~~~~~~~~~~~
 nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>ff :lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>
 nnoremap <leader>ld :lua vim.lsp.diagnostic.set_loclist()<CR>
-nnoremap <leader>k :lua vim.lsp.buf.hover()<CR>
+nnoremap K :lua vim.lsp.buf.hover()<CR>
+inoremap <silent><expr> <C-CR> compe#confirm('<CR>')
 
-" Git Fugitive
+" ~~~~~~~~~~~~~~~~~~~~~~
+" GIT FUGITIVE
+" ~~~~~~~~~~~~~~~~~~~~~~
 nmap <leader>gs  :G<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gh :diffget //3<CR>
@@ -260,13 +289,13 @@ nmap <leader>gc :Git commit<CR>
 nmap <leader>gcc :lua vim.api.nvim_command("Git checkout " .. vim.fn.input("Branch to checkout > "))<CR>
 nmap <leader>gccb :lua vim.api.nvim_command("Git checkout -b " .. vim.fn.input("Branch to checkout (-b) > "))<CR>
 
+" ~~~~~~~~~~~~~~~~~~~~~~
+" PROJECT SPECIFIC REMAPS
+" ~~~~~~~~~~~~~~~~~~~~~~
+" Renaming tags
+nnoremap <leader>tgr :lua require('mi.utils').tagRenamePrompt()<CR>
 " yarn testing
 nnoremap <leader>cdp :cd ~/projects/peak<CR>
 nnoremap <leader>tt :! yarn test:unit %:p<CR>
 nnoremap <leader>tu :! yarn test:unit -u %:p<CR>
 
-" Misc
-nnoremap <leader>n :noh<CR>
-
-" Renaming tags
-nnoremap <leader>tgr :lua require('mi.utils').tagRenamePrompt()<CR>
