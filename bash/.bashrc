@@ -1,9 +1,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-alias ll='ls -loh'
-alias la='ls -laoh'
+alias ls="ls --color=auto"
+alias ll="ls -loh"
+alias la="ls -laoh"
+
+alias list-cursors="find /usr/share/icons ~/.local/share/icons ~/.icons -type d -name 'cursors' | grep -v 'No such file'"
+alias list-themes="find /usr/share/themes /usr/local/share/themes ~/.local/share/themes ~/.themes -type d | grep -v 'No such file'"
 
 export MONITOR="eDP1"
 
