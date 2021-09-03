@@ -139,4 +139,4 @@ label-warn = "!CPU %temperature-c%!"
 [module/weather]
 type = custom/script
 interval = 300
-exec = $HOME/.config/polybar/weather.sh
+exec = $HOME/bash-scripts/polybar/weather.sh
