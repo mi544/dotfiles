@@ -5,13 +5,19 @@
 Use [GNU Stow](https://www.gnu.org/software/stow/) to load configuration for
 each package.
 
+To stow individual packages
 ```shell
-$ stow <package> # ex: stow nvim
+$ stow <package>
+# for example
+$ stow nvim
 ```
+
+Or run the `stow.sh` script to remove and stow all packages. All existing files
+that stow will operate on will be removed from `$HOME/.config` before stowing
 
 ## Node
 
-Node versioning is handled through [Volta](https://volta.sh/).  
+Node versioning is handled through [Volta](https://volta.sh/)  
 
 Here's a list of packages needed to be installed:
 
