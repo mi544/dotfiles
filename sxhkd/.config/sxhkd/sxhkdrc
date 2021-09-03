@@ -156,3 +156,6 @@ super + n
 super + f
   nautilus
 
+# Resize
+super + ]
+  bspc 

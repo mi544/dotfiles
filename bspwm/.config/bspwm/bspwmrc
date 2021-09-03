@@ -51,11 +51,13 @@ bspc rule -a Gnome-music desktop=^6
 bspc rule -a gammy desktop=^7
 bspc rule -a Pavucontrol state=floating
 bspc rule -a 'firefoxdeveloperedition:Devtools' state=floating
+bspc rule -a 'firefox:Tookit:Picture-in-Picture' focus=off
 bspc rule -a 'firefox:Toolkit' state=floating
 bspc rule -a 'Alacritty:qalc' state=floating
 bspc rule -a 'Nitrogen' state=floating
 bspc rule -a 'Org.gnome.Nautilus' state=floating
 bspc rule -a 'zoom' state=floating
+bspc rule -a 'steam_app_10' state=pseudo_tiled rectangle=1226x919
 
 # adjusts cursor on root screen
 xsetroot -cursor_name left_ptr &
