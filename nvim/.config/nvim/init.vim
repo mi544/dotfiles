@@ -260,10 +260,10 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " Moving lines of text in all modes
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-"nnoremap <leader>j :m .+1<CR>==
-"nnoremap <leader>k :m .-2<CR>==
-"inoremap <C-j> <esc>:m .+1<CR>==<insert>
-"inoremap <C-k> <esc>:m .-2<CR>==<insert>
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+inoremap <C-j> <esc>:m .+1<CR>==<insert>
+inoremap <C-k> <esc>:m .-2<CR>==<insert>
 
 " ~~~~~~~~~~~~~~~~~~~~~~
 " LSP
