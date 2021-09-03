@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-ls -I "README.md" -I "stow.sh" | xargs stow -v --restow
+# removing all current symlinks/files
+find . | grep -v '.git' | grep ".config/" | sed "s|.*\(\.config.*\)|$HOME/\1|g" | xargs rm -rf
+
+# stowing everything from this directory
+ls -I "README.md" -I "stow.sh" | xargs stow -v
