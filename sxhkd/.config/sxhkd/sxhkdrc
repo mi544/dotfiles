@@ -130,6 +130,14 @@ super + a
 super + z
   $HOME/bash-scripts/lower-volume.sh
 
+# Increase brightness
+super + s
+  xbacklight -inc 5
+
+# Decrease brightness
+super + x
+  xbacklight -dec 5
+
 ### APP SHORTCUTS ###
 
 # Firefox
