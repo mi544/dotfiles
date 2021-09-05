@@ -10,15 +10,15 @@
     "brt_step": 500,
     "brt_threshold": 8,
     "log_level": 3,
-    "temp_auto": false,
+    "temp_auto": true,
     "temp_fps": 45,
-    "temp_high": 6500,
+    "temp_high": 5800,
     "temp_low": 3400,
-    "temp_speed": 60.0,
-    "temp_step": 304,
-    "temp_sunrise": "06:00:00",
-    "temp_sunset": "16:00:00",
+    "temp_speed": 1.0,
+    "temp_step": 77,
+    "temp_sunrise": "07:00:00",
+    "temp_sunset": "19:00:00",
     "wnd_show_on_startup": true,
-    "wnd_x": 7,
-    "wnd_y": 42
+    "wnd_x": -1,
+    "wnd_y": -1
 }
