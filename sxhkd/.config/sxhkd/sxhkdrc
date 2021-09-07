@@ -124,11 +124,11 @@ Print
 
 # Raise volume
 super + a
-  $HOME/bash-scripts/raise-volume.sh
+  $HOME/bash-scripts/utils/raise-volume.sh
 
 # Lower volume
 super + z
-  $HOME/bash-scripts/lower-volume.sh
+  $HOME/bash-scripts/utils/lower-volume.sh
 
 # Increase brightness
 super + s
@@ -152,9 +152,17 @@ super + t
 super + m
   pavucontrol
 
+# st terminal (backup)
+super + apostrophe
+  st
+
 # Qalc
 super + c
   alacritty --class qalc -e qalc
+
+# Random video in terminal
+super + bracketright
+  $HOME/bash-scripts/utils/terminal-random-video.sh
 
 # Nitrogen
 super + n

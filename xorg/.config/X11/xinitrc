@@ -10,7 +10,10 @@ fi
 xset s off
 xset -dpms
 xsetroot -cursor_name left_ptr &
+unclutter --timeout 2 --jitter 2 --fork &
 xrdb -load ~/.config/X11/xresources &
 xmodmap ~/.config/X11/xmodmap &
+
+export CACA_DRIVER=ncurses
 
 exec bspwm
