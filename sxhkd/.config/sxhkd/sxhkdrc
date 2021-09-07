@@ -160,9 +160,14 @@ super + apostrophe
 super + c
   alacritty --class qalc -e qalc
 
+# Miku
+super + u
+  $HOME/bash-scripts/utils/terminal-play-video.sh miku
+
 # Random video in terminal
 super + bracketright
   $HOME/bash-scripts/utils/terminal-random-video.sh
+
 
 # Nitrogen
 super + n
