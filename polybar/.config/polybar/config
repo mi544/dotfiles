@@ -35,38 +35,33 @@ foreground = ${colors.foreground}
 
 padding-left = 1
 padding-right = 2
-# padding = 0
+; padding = 0
 
 module-margin-left = 0
 module-margin-right = 0
 
 font-0 = Fira Sans Book:pixelsize=16;
-# font-1 = HackerNerdFont:pixelsize=10;
+; font-1 = HackerNerdFont:pixelsize=10;
 
 pseudo-transparency = true
 
 [module/bspwm]
 type = internal/bspwm
-
 pin-workspaces = true
 inline-mode = false
 enable-click = true
 enable-scroll = false
 fuzzy-match = true
-
 label-focused = %name%
 label-focused-background = ${colors.active}
 label-focused-foreground = ${colors.foreground-inversed}
 label-focused-padding = 2
-
 label-occupied = %name%
 label-occupied-foreground = ${colors.foreground}
 label-occupied-padding = 2
-
 label-urgent = %name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
-
 label-empty = %name%
 label-empty-foreground = #4fb9c0
 label-empty-padding = 2
@@ -96,12 +91,10 @@ sink = alsa_output.pci-0000_12_00.3.analog-stereo
 use-ui-max = true
 interval = 3
 click-right = pavucontrol
-
 format-volume = <label-volume>
 format-muted = <label-muted>
 format-volume-background = ${colors.background-alt}
 format-volume-foreground = ${colors.foreground-inversed}
-
 label-volume = "  %percentage%%  "
 label-muted = "     M     "
 label-muted-foreground = ${colors.alert}
@@ -119,22 +112,11 @@ content = " "
 type = custom/text
 content = "·"
 
+
 [module/cpu-temp]
-type = internal/temperature
+type = custom/script
 interval = 0.5
-; `for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done`
-thermal-zone = 0
-; `for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done`
-hwmon-path = /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon5/temp1_input
-base-temperature = 20
-warn-temperature = 65
-
-format = <label>
-format-warn = <label-warn>
-format-warn-underline = ${colors.alert}
-
-label = "CPU %temperature-c%"
-label-warn = "!CPU %temperature-c%!"
+exec = $HOME/bash-scripts/polybar/cpu-temp.sh
 
 [module/weather]
 type = custom/script
