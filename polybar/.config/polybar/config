@@ -115,7 +115,7 @@ content = "·"
 
 [module/cpu-temp]
 type = custom/script
-interval = 0.5
+interval = 2
 exec = $HOME/bash-scripts/polybar/cpu-temp.sh
 
 [module/weather]

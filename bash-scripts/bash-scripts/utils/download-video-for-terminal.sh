@@ -4,4 +4,4 @@
 
 url_list=$(youtube-dl -f "[height<=720]" -g "$1")
 direct_url=$(echo $url_list | sed "s/\(.*\) .*/\1/")
-ffmpeg -i "$direct_url" -ss 00:30 -t 30 $HOME/term/$4.mp4
+ffmpeg -i "$direct_url" -an $HOME/term/$2.mp4

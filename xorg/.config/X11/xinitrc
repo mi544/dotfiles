@@ -10,7 +10,7 @@ fi
 xset s off
 xset -dpms
 xsetroot -cursor_name left_ptr &
-unclutter --timeout 2 --jitter 2 --fork &
+unclutter --timeout 1 --jitter 2 --fork --ignore-buttons 4,5,6,7 &
 xrdb -load ~/.config/X11/xresources &
 xmodmap ~/.config/X11/xmodmap &
 
