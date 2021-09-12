@@ -8,11 +8,4 @@ cpu_temp=$(
     sed "s/\.[[:digit:]].*//"
 )
 
-cpu_message="CPU - $cpu_temp°F"
-
-if [ $cpu_temp -ge 65 ]
-then
-  echo "! $cpu_message !"
-else
-  echo $cpu_message
-fi
+echo "CPU - $cpu_temp°C"

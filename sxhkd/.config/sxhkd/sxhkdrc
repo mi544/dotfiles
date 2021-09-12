@@ -162,7 +162,7 @@ super + c
 
 # Miku
 super + u
-  $HOME/bash-scripts/utils/terminal-play-video.sh miku
+  $HOME/bash-scripts/utils/terminal-play-video.sh miku-himitsu-keisatsu
 
 # Random video in terminal
 super + bracketright

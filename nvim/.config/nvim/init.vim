@@ -122,7 +122,15 @@ local eslint = {
 }
 
 require'lspconfig'.efm.setup{
-  root_dir = require'lspconfig'.util.root_pattern(".git", ".eslintrc.js", ".prettierrc"),
+  root_dir = require'lspconfig'.util.root_pattern(
+    ".git",
+    ".eslintrc",
+    ".eslintrc.json",
+    ".eslintrc.js",
+    ".prettierrc",
+    ".prettierrc.js",
+    ".prettierrc.json"
+    ),
   on_attach = function(client)
     client.resolved_capabilities.goto_definition = false
   end,
@@ -134,6 +142,7 @@ require'lspconfig'.efm.setup{
       typescript = { prettier, eslint },
       vue = { eslint },
       json = { prettier },
+      html = { prettier },
       markdown = { prettier },
     }
   },
@@ -142,18 +151,27 @@ require'lspconfig'.efm.setup{
     "typescript",
     "vue",
     "json",
+    "html",
     "markdown",
   },
 }
 
 require'lspconfig'.clangd.setup{}
 
+require'lspconfig'.gopls.setup{
+  root_dir = require'lspconfig'.util.root_pattern("go.mod", ".git"),
+  cmd = {"gopls", "serve"}
+}
+
 require'lspconfig'.phpactor.setup{}
+
+require'lspconfig'.rust_analyzer.setup{
+  root_dir = require'lspconfig'.util.root_pattern("Cargo.toml", "rust-project.json")
+}
 
 require'lspconfig'.tsserver.setup{
   on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.diagnostics = false
   end,
 }
 
@@ -240,7 +258,7 @@ vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 " expected behavior for Y
 nnoremap Y y$
-nnoremap <leader>Y gg"+y$
+nnoremap <leader>Y "+y$
 
 " Keeping it centered
 nnoremap n nzzzv
@@ -251,7 +269,7 @@ nnoremap J mzJ`z
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ! !<c-g>u
-inoremap ? ?gc-g>u
+inoremap ? ?<c-g>u
 
 " Jumplist records relative moves (jk)
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
