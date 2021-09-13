@@ -5,7 +5,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 $HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
 nitrogen --restore &
-gammy &
+xsct 6500 &
 fcitx -d &
 
 ### MONITORS ###

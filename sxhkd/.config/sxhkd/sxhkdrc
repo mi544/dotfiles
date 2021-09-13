@@ -138,6 +138,14 @@ super + s
 super + x
   xbacklight -dec 5
 
+# Increase screen temperature 
+super + d
+  $HOME/bash-scripts/utils/increase-screen-temperature.sh
+
+# Decrease screen temperature
+super + c
+  $HOME/bash-scripts/utils/decrease-screen-temperature.sh
+
 ### APP SHORTCUTS ###
 
 # Firefox
@@ -157,7 +165,7 @@ super + apostrophe
   st
 
 # Qalc
-super + c
+super + q
   alacritty --class qalc -e qalc
 
 # Miku
