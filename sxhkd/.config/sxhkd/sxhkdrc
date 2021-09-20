@@ -131,19 +131,19 @@ super + z
   $HOME/bash-scripts/utils/lower-volume.sh
 
 # Increase brightness
-super + s
-  xbacklight -inc 5
+super + d
+  xbacklight -inc 2
 
 # Decrease brightness
-super + x
-  xbacklight -dec 5
+super + c
+  xbacklight -dec 2
 
 # Increase screen temperature 
-super + d
+super + s
   $HOME/bash-scripts/utils/increase-screen-temperature.sh
 
 # Decrease screen temperature
-super + c
+super + x
   $HOME/bash-scripts/utils/decrease-screen-temperature.sh
 
 ### APP SHORTCUTS ###

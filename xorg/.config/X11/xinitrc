@@ -14,6 +14,4 @@ unclutter --timeout 1 --jitter 2 --fork --ignore-buttons 4,5,6,7 &
 xrdb -load ~/.config/X11/xresources &
 xmodmap ~/.config/X11/xmodmap &
 
-export CACA_DRIVER=ncurses
-
 exec bspwm

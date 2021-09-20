@@ -1,49 +1,82 @@
-[global/wm]
-margin-bottom = 0
-margin-top = 0
-
 [colors]
+text = #fffff
 background = #005c5c
-background-alt = #cbbae9
+background-bar-alt = #25c7ad
+background-bar = #cbbae0
 foreground = #f5ffff
 foreground-inversed = #112
 active = #52ffff
 alert = #d23b22
 
-[bar/main]
-modules-left = sep-1 bspwm
-modules-right = weather sep-3 date sep-1 cpu-temp sep-3 pulseaudio sep-2 battery sep-1
+[settings]
+; Enables pseudo-transparency for the bar
+; If set to true the bar can be transparent without a compositor.
+pseudo-transparency = true
 
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+[bar/main]
 monitor = eDP1
 monitor-fallback =
 monitor-strict = false
 monitor-exact = true 
 override-redirect = true
-wm-restack = bspwm
-enable-ipc = true
-separator =
-
+bottom = false
+fixed-center = true
 width = 80%
 height = 35
 offset-x = 10%
 offset-y = 4
-radius = 18
-fixed-center = false
-
 background = ${colors.background}
 foreground = ${colors.foreground}
-
+radius = 18
+; Under-/overline pixel size and argb color
+; Individual values can be defined using:
+;   {overline,underline}-size
+;   {overline,underline}-color
+line-size = 0
+line-color = #f00
+border-size =
+border-color =
 padding-left = 1
 padding-right = 2
-; padding = 0
-
 module-margin-left = 0
 module-margin-right = 0
-
 font-0 = Fira Sans Book:pixelsize=16;
-; font-1 = HackerNerdFont:pixelsize=10;
+modules-left = bspwm
+modules-center =
+modules-right = screen-temp weather date cpu-temp pulseaudio sep sep battery sep
+separator =
+; Opacity value between 0.0 and 1.0 used on fade in/out
+dim-value = 1.0
+wm-name =
+locale =
+; Set a DPI values used when rendering text
+; This only affects scalable fonts
+; Set this to 0 to let polybar calculate the dpi from the screen size.
+dpi = 0
+enable-ipc = true
+; Fallback click handlers that will be called if
+; there's no matching module handler found.
+click-left = 
+click-middle = 
+click-right =
+scroll-up =
+scroll-down =
+double-click-left =
+double-click-middle =
+double-click-right =
+; Requires polybar to be built with xcursor support (xcb-util-cursor)
+; Possible values are:
+; - default   : The default pointer as before, can also be an empty string (default)
+; - pointer   : Typically in the form of a hand
+; - ns-resize : Up and down arrows, can be used to indicate scrolling
+cursor-click = 
+cursor-scroll =
 
-pseudo-transparency = true
+wm-restack = bspwm
 
 [module/bspwm]
 type = internal/bspwm
@@ -65,16 +98,17 @@ label-urgent-padding = 2
 label-empty = %name%
 label-empty-foreground = #4fb9c0
 label-empty-padding = 2
+format-padding = 2
 
 [module/date]
 type = internal/date
 date = "%d %b, %a"
 time = " %l:%M %p"
 interval = 1
-label = "   %date%%time%   "
-format-padding = 1
-label-background = ${colors.background-alt}
-label-foreground = ${colors.foreground-inversed}
+label = "%date%%time%"
+format-background = ${colors.background-bar}
+format-foreground = ${colors.foreground-inversed}
+format-padding = 3
 
 [module/battery]
 type = internal/battery
@@ -93,32 +127,42 @@ interval = 3
 click-right = pavucontrol
 format-volume = <label-volume>
 format-muted = <label-muted>
-format-volume-background = ${colors.background-alt}
+format-volume-background = ${colors.background-bar}
 format-volume-foreground = ${colors.foreground-inversed}
 label-volume = "  %percentage%%  "
 label-muted = "     M     "
 label-muted-foreground = ${colors.alert}
 
-[module/sep-3]
-type = custom/text
-content = "   "
-[module/sep-2]
-type = custom/text
-content = "  "
-[module/sep-1]
-type = custom/text
-content = " "
 [module/sep-i]
 type = custom/text
 content = "·"
 
+[module/sep]
+type = custom/text
+content = " "
 
 [module/cpu-temp]
 type = custom/script
+format-background = ${colors.background-bar-alt}
+format-foreground = ${colors.text}
+format-padding = 2
 interval = 2
 exec = $HOME/bash-scripts/polybar/cpu-temp.sh
 
 [module/weather]
 type = custom/script
+format = "<label>"
+format-background = ${colors.background-bar-alt}
+format-foreground = ${colors.text}
+format-padding = 2
 interval = 300
 exec = $HOME/bash-scripts/polybar/weather.sh
+
+[module/screen-temp]
+type = custom/script
+format-background = ${colors.background-bar}
+format-foreground = ${colors.foreground-inversed}
+format-padding = 3
+tail = true
+interval = 0
+exec = $HOME/bash-scripts/polybar/screen-temp.sh
