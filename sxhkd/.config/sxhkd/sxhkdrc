@@ -124,27 +124,39 @@ Print
 
 # Raise volume
 super + a
-  $HOME/bash-scripts/utils/raise-volume.sh
+  $HOME/bash-scripts/utils/raise-volume.sh 3
 
 # Lower volume
 super + z
-  $HOME/bash-scripts/utils/lower-volume.sh
+  $HOME/bash-scripts/utils/lower-volume.sh 3
 
 # Increase brightness
 super + d
   xbacklight -inc 2
 
+super + shift + d
+  xbacklight -inc 10
+
+super + ctrl + shift + d
+  xbacklight -set 100
+
 # Decrease brightness
 super + c
   xbacklight -dec 2
 
+super + shift + c
+  xbacklight -dec 10
+
+super + ctrl + shift + c
+  xbacklight -set 1
+
 # Increase screen temperature 
 super + s
-  $HOME/bash-scripts/utils/increase-screen-temperature.sh
+  $HOME/bash-scripts/utils/increase-screen-temperature.sh 50
 
 # Decrease screen temperature
 super + x
-  $HOME/bash-scripts/utils/decrease-screen-temperature.sh
+  $HOME/bash-scripts/utils/decrease-screen-temperature.sh 50
 
 ### APP SHORTCUTS ###
 
@@ -181,9 +193,9 @@ super + bracketright
 super + n
   nitrogen
 
-# Nautilus
+# File manager
 super + f
-  nautilus
+  thunar
 
 # Resize
 super + ]
