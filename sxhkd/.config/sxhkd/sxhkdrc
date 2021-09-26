@@ -160,13 +160,13 @@ super + x
 
 ### APP SHORTCUTS ###
 
-# Firefox
+# LibreWolf (personal)
 super + r
-  firefox
+  librewolf --profile $HOME/.librewolf-profiles/personal
 
-# Firefox Dev Edition
+# LibreWolf (work)
 super + t
-  firefox-developer-edition
+  librewolf --profile $HOME/.librewolf-profiles/work
 
 # pavucontrol
 super + m
