@@ -126,9 +126,15 @@ Print
 super + a
   $HOME/bash-scripts/utils/raise-volume.sh 3
 
+super + shift + a
+  $HOME/bash-scripts/utils/raise-volume.sh 10
+
 # Lower volume
 super + z
   $HOME/bash-scripts/utils/lower-volume.sh 3
+
+super + shift + z
+  $HOME/bash-scripts/utils/lower-volume.sh 10
 
 # Increase brightness
 super + d
@@ -162,11 +168,11 @@ super + x
 
 # LibreWolf (personal)
 super + r
-  librewolf --profile $HOME/.librewolf-profiles/personal
+  $HOME/bash-scripts/utils/librewolf-with-custom-class.sh personal 2
 
-# LibreWolf (work)
+# LibreWolf (dev)
 super + t
-  librewolf --profile $HOME/.librewolf-profiles/work
+  $HOME/bash-scripts/utils/librewolf-with-custom-class.sh dev 3
 
 # pavucontrol
 super + m
