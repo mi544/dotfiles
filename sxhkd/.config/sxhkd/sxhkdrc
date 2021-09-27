@@ -34,7 +34,7 @@ alt + {p,b,comma,period}
 
 # switch to/send to specific desktop
 alt + {_,shift + }{1,2,3,8,9,0,minus,equal}
-	bspc {desktop -f,node -d} '^{1,2,3,4,5,6,7,8}'
+	bspc {desktop -f,node -d} '^{1,2,3,4,5,6,7,8}'; bspc node -f 'any.!sticky.leaf.local'
 
 ### PRESELECT ###
 
