@@ -46,9 +46,8 @@ bspc config pointer_follows_focus false
 bspc rule -a Slack desktop=^1
 bspc rule -a gammy desktop=^7
 bspc rule -a Pavucontrol state=floating
-bspc rule -a 'firefoxdeveloperedition:Devtools' state=floating
-bspc rule -a 'firefox:Tookit:Picture-in-Picture' focus=off
-bspc rule -a 'firefox:Toolkit' state=floating
+bspc rule -a 'LibreWolf:Devtools' state=floating
+bspc rule -a 'LibreWolf:Toolkit:Picture-in-Picture' state=floating sticky=on focus=off
 bspc rule -a 'Alacritty:qalc' state=floating
 bspc rule -a 'Alacritty:video' state=pseudo_tiled
 bspc rule -a 'Nitrogen' state=floating

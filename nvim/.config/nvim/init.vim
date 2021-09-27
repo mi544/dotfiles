@@ -138,8 +138,8 @@ require'lspconfig'.efm.setup{
   settings = {
     rootMarkers = {".git/", ".eslintrc.js", ".prettierrc"},
     languages = {
-      javascript = { prettier, eslint },
-      typescript = { prettier, eslint },
+      javascript = { eslint },
+      typescript = { eslint },
       vue = { eslint },
       json = { prettier },
       html = { prettier },
@@ -157,6 +157,8 @@ require'lspconfig'.efm.setup{
 }
 
 require'lspconfig'.clangd.setup{}
+
+require'lspconfig'.bashls.setup{}
 
 require'lspconfig'.gopls.setup{
   root_dir = require'lspconfig'.util.root_pattern("go.mod", ".git"),
@@ -223,6 +225,7 @@ require'nvim-treesitter.configs'.setup{
     'json',
     'html',
     'scss',
+    'php',
   }
 }
 EOF
@@ -313,7 +316,7 @@ nmap <leader>gccb :lua vim.api.nvim_command("Git checkout -b " .. vim.fn.input("
 " Renaming tags
 nnoremap <leader>tgr :lua require('mi.utils').tagRenamePrompt()<CR>
 " yarn testing
-nnoremap <leader>cdp :cd ~/projects/peak<CR>
+nnoremap <leader>cdp :cd ~/projects/remax/peak<CR>
 nnoremap <leader>tt :! yarn test:unit %:p<CR>
 nnoremap <leader>tu :! yarn test:unit -u %:p<CR>
 
