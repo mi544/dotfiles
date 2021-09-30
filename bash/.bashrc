@@ -1,6 +1,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+export MONITOR="eDP1"
+
 export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
@@ -22,8 +27,4 @@ alias pvterm="$HOME/bash-scripts/utils/terminal-play-video.sh $1"
 
 alias nn="neofetch"
 
-export MONITOR="eDP1"
-
 PS1='[\u@\h \W]\$ '
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"

@@ -110,6 +110,7 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     family: Source Code Pro
+    # family: FiraCode
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack

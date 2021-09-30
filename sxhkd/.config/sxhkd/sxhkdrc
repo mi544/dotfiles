@@ -91,12 +91,18 @@ super + a
 super + shift + a
   $HOME/bash-scripts/utils/raise-volume.sh 7
 
+super + ctrl + shift + a
+  $HOME/bash-scripts/utils/raise-volume.sh 500
+
 # Lower volume
 super + z
   $HOME/bash-scripts/utils/lower-volume.sh 3
 
 super + shift + z
   $HOME/bash-scripts/utils/lower-volume.sh 7
+
+super + ctrl + shift + z
+  $HOME/bash-scripts/utils/lower-volume.sh 500
 
 # Increase brightness
 super + d
