@@ -49,6 +49,7 @@ bspc rule -a Pavucontrol state=floating
 bspc rule -a 'LibreWolf:Devtools' state=floating
 bspc rule -a 'LibreWolf:Toolkit:Picture-in-Picture' state=floating sticky=on focus=off
 bspc rule -a 'Alacritty:qalc' state=floating
+bspc rule -a 'Cypress' state=floating
 bspc rule -a 'Alacritty:video' state=pseudo_tiled
 bspc rule -a 'Nitrogen' state=floating
 bspc rule -a 'Thunar' state=floating

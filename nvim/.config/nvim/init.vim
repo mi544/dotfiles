@@ -156,18 +156,18 @@ require'lspconfig'.efm.setup{
   },
 }
 
-require'lspconfig'.clangd.setup{}
+-- require'lspconfig'.clangd.setup{}
 
 require'lspconfig'.bashls.setup{}
 
-require'lspconfig'.gopls.setup{
-  root_dir = require'lspconfig'.util.root_pattern("go.mod", ".git"),
-  cmd = {"gopls", "serve"}
-}
+-- require'lspconfig'.gopls.setup{
+--   root_dir = require'lspconfig'.util.root_pattern("go.mod", ".git"),
+--   cmd = {"gopls", "serve"}
+-- }
 
 require'lspconfig'.phpactor.setup{}
 
-require'lspconfig'.rust_analyzer.setup{
+require'lspconfig'.rls.setup{
   root_dir = require'lspconfig'.util.root_pattern("Cargo.toml", "rust-project.json")
 }
 

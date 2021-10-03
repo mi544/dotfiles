@@ -60,6 +60,9 @@ alt + ctrl + BackSpace
 alt + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+shift + alt + {Left,Down,Up,Right}
+	bspc node -v {-80 0,0 80,0 -80,80 0}
+
 #############
 ### UTILS ###
 #############
