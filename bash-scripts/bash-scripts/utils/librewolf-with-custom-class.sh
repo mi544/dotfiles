@@ -10,11 +10,14 @@ do
 
   if [ $librewolf_char_count -gt 3 ]
   then
-    wid=$(echo $librewolf_win_list | awk -F: '{print $1}')
-    pid=$(echo $librewolf_win_list | awk -F: '{print $2}')
-    xdotool search --all --pid $pid --class 'LibreWolf' \
-      set_window --class "LibreWolf-$1"
-    bspc node $wid -d $2
+    for i in $(seq 5)
+    do
+      wid=$(echo $librewolf_win_list | awk -F: '{print $1}')
+      xdotool search --class LibreWolf \
+        set_window --class "LibreWolf-$1"
+      bspc node $wid -d $2
+      sleep 0.3
+    done
     break
   else
     sleep 0.2

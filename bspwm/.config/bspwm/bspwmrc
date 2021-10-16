@@ -2,7 +2,7 @@
 
 ### AUTOSTART ###
 pgrep -x sxhkd > /dev/null || sxhkd &
-fcitx -rd &
+fcitx5 -rd &
 $HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
 nitrogen --restore &

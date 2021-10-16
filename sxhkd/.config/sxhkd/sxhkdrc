@@ -29,8 +29,8 @@ alt + {_,shift + }{h,j,k,l}
 #??
 # focus node for specific path jump
 #??
-alt + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+# alt + {p,b,comma,period}
+	# bspc node -f @{parent,brother,first,second}
 
 # switch to/send to specific desktop
 alt + {_,shift + }{1,2,3,8,9,0,minus,equal}
@@ -78,6 +78,10 @@ alt + Return
 # terminal emulator
 alt + space
   alacritty
+
+# terminal emulator
+alt + p
+  rofi-pass
 
 ###################
 ### APP ACTIONS ###
@@ -175,6 +179,6 @@ super + n
 super + f
   thunar
 
-# Resize
-super + ]
-  bspc 
+# DeadBeef
+super + b
+  deadbeef
