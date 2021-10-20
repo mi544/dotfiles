@@ -1,4 +1,6 @@
 syntax on
+" .rafi syntax highlighting
+au BufNewFile,BufRead /*.rasi setf css
 
 set scrolloff=8
 set noerrorbells

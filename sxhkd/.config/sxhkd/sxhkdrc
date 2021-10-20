@@ -73,7 +73,7 @@ alt + ctrl + Escape
 
 # program launcher
 alt + Return
-	rofi -modi run,drun,window -show drun -show-icons -sidebar-mode
+  rofi -modi drun -show drun
 
 # terminal emulator
 alt + space
