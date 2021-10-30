@@ -8,7 +8,7 @@ picom --experimental-backends &
 nitrogen --restore &
 
 ### MONITORS ###
-bspc monitor -d 1 2 3 8 9 0 - =
+bspc monitor -d 2 3 4 7 8 9 0 -
 
 ### BSPWM configuration ###
 bspc config border_width 3
@@ -49,6 +49,7 @@ bspc rule -a Pavucontrol state=floating
 bspc rule -a 'LibreWolf:Devtools' state=floating
 bspc rule -a 'LibreWolf:Toolkit:Picture-in-Picture' state=floating sticky=on focus=off
 bspc rule -a 'Alacritty:qalc' state=floating
+bspc rule -a 'mpv' state=fullscreen
 bspc rule -a 'Cypress' state=floating
 bspc rule -a 'Alacritty:video' state=pseudo_tiled
 bspc rule -a 'Nitrogen' state=floating

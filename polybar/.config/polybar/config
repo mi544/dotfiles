@@ -47,7 +47,7 @@ module-margin-right = 0
 font-0 = Fira Sans Book:pixelsize=16;
 modules-left = bspwm
 modules-center =
-modules-right = screen-temp weather date cpu-temp pulseaudio sep sep battery sep
+modules-right = weather date cpu-temp pulseaudio sep sep battery sep
 separator =
 ; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0

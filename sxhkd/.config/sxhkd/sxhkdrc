@@ -33,8 +33,10 @@ alt + {_,shift + }{h,j,k,l}
 	# bspc node -f @{parent,brother,first,second}
 
 # switch to/send to specific desktop
-alt + {_,shift + }{1,2,3,8,9,0,minus,equal}
-	bspc {desktop -f,node -d} '^{1,2,3,4,5,6,7,8}'; bspc node -f 'any.!sticky.leaf.local'
+alt + {_,shift + }{2,3,4,7,8,9,0,minus}
+	bspc {desktop -f,node -d} '^{1,2,3,4,5,6,7,8}'
+    # make optional (if such a window exists)
+    #; bspc node -f 'any.!sticky.leaf.local'
 
 ### PRESELECT ###
 
@@ -102,42 +104,42 @@ super + ctrl + shift + a
   $HOME/bash-scripts/utils/raise-volume.sh 500
 
 # Lower volume
-super + z
+super + semicolon
   $HOME/bash-scripts/utils/lower-volume.sh 3
 
-super + shift + z
+super + shift + semicolon
   $HOME/bash-scripts/utils/lower-volume.sh 7
 
-super + ctrl + shift + z
+super + ctrl + shift + semicolon
   $HOME/bash-scripts/utils/lower-volume.sh 500
 
 # Increase brightness
-super + d
+super + o
   xbacklight -inc 2
 
-super + shift + d
+super + shift + o
   xbacklight -inc 10
 
-super + ctrl + shift + d
+super + ctrl + shift + o
   xbacklight -set 100
 
 # Decrease brightness
-super + c
+super + q
   xbacklight -dec 2
 
-super + shift + c
+super + shift + q
   xbacklight -dec 10
 
-super + ctrl + shift + c
+super + ctrl + shift + q
   xbacklight -set 1
 
 # Increase screen temperature 
-super + s
-  $HOME/bash-scripts/utils/increase-screen-temperature.sh 50
+#super + s
+  #$HOME/bash-scripts/utils/increase-screen-temperature.sh 50
 
 # Decrease screen temperature
-super + x
-  $HOME/bash-scripts/utils/decrease-screen-temperature.sh 50
+#super + x
+  #$HOME/bash-scripts/utils/decrease-screen-temperature.sh 50
 
 #####################
 ### APP SHORTCUTS ###
@@ -145,18 +147,18 @@ super + x
 
 # LibreWolf (personal)
 super + r
-  $HOME/bash-scripts/utils/librewolf-with-custom-class.sh personal 2
+  $HOME/bash-scripts/utils/librewolf-with-custom-class.sh personal 3
 
 # LibreWolf (dev)
 super + t
-  $HOME/bash-scripts/utils/librewolf-with-custom-class.sh dev 3
+  $HOME/bash-scripts/utils/librewolf-with-custom-class.sh dev 4
 
 # pavucontrol
 super + m
   pavucontrol
 
 # st terminal (backup)
-super + apostrophe
+super + z
   st
 
 # Qalc
