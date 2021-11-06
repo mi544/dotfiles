@@ -26,6 +26,8 @@ alias list-fonts="fc-list"
 alias recent-packages="$HOME/bash-scripts/utils/recent-packages.sh"
 alias dvterm="$HOME/bash-scripts/utils/download-video-for-terminal.sh"
 alias pvterm="$HOME/bash-scripts/utils/terminal-play-video.sh $1"
+alias ytdl="yt-dlp -f bestvideo+bestaudio"
+alias ytmpv="mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace"
 
 alias nn="neofetch"
 
