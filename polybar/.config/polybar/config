@@ -18,7 +18,7 @@ margin-bottom = 0
 margin-top = 0
 
 [bar/main]
-monitor = eDP1
+monitor = DisplayPort-0
 monitor-fallback =
 monitor-strict = false
 monitor-exact = true 
