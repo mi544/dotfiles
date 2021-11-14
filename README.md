@@ -80,7 +80,7 @@ man-pages
 neofetch
 screenfetch
 tldr
-sl
+AUR:sl
 ```
 
 Games:
@@ -111,15 +111,15 @@ iputils
 lua
 AUR:volta-bin
 ufw
-archlinux-java-run
+archlinux-java-run(?)
 composer
 docker docker-compose docker-machine
 fcitx5 fcitx5-anthy fcitx5-configtool fcitx5-gtk fcitx5-qt
-gammy
+AUR:gammy-git
 ripgrep
 pass pass-otp
 youtube-dl
-AUR:youtube-dl yt-dlp phantomjs
+AUR:youtube-dl-git yt-dlp-git phantomjs-bin
 AUR:qimgv
 zathura zathura-pdf-mupdf
 rustup
@@ -134,18 +134,18 @@ AUR:librewolf-bin
 AUR:insomnia-bin
 AUR:rustdesk-bin
 AUR:zoom
+AUR:deadbeef
+AUR:slack-desktop
 discord
 gimp
 obs-studio
 qbittorrent
-slack-desktop
 steam
 telegram-desktop
 vlc
 thunar thunar-archive-plugin thunar-volman gvfs
 audacity
 dbeaver
-deadbeef
 dino
 gedit
 irssi
@@ -167,3 +167,6 @@ terminus-font
 
 TBD: alsa, pulse (with mixers), bluez, networkmanager, wine,
 intel video (installation), japanese fonts
+
+feral gamemode
+steam settings preserve

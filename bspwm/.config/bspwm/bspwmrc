@@ -6,6 +6,8 @@ fcitx5 -rd &
 $HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
 nitrogen --restore &
+gammy &
+xinput set-prop 'ASUSTeK ROG STRIX IMPACT II WIRELESS' 307 -0.25
 
 ### MONITORS ###
 bspc monitor -d 2 3 4 7 8 9 0 -
