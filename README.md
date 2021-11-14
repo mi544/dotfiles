@@ -19,27 +19,56 @@ that stow will operate on will be removed from `$HOME/.config` before stowing
 
 Node versioning is handled through [Volta](https://volta.sh/)  
 
-Here's a list of packages needed to be installed:
-
 ```
-npm-check-updates serve netlify-cli
-lerna
+npm-check-updates serve lerna
 eslint eslint_d prettier
-typescript typescript-language-server vls
+typescript typescript-language-server vls bash-language-server
 ```
 
 ## Packages to install (WIP)
 
 Installation:
 ```
-intel-ucode
+base base-devel linux linux-firmware linux-zen man-db man-pages vim amd-ucode sudo git
+networkmanager networkmanager-openvpn bluez bluez-utils alsa-utils pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer
+grub efibootmgr
+pamixer pavucontrol
 ```
+
+```
+adduser -m ..
+groupadd docker
+usermod -aG wheel,audio,video,storage,docker ..
+visudo
+```
+
+!!!
+CAPTURE /etc/default/grub
+CAPTURE symlinks in `/usr/local/bin`
+CAPTURE xinit setup
+CAPTURE `/etc/pacman.conf`
+systemctl enable NetworkManager
+systemctl enable bluetooth
+!!!
+
+
+Uncomment lib32 in pacman.conf
+
+```
+--aura---
+xf86-video-amdgpu mesa lib32-mesa lib32-vulkan-radeon vulkan-radeon
+alacritty xorg-server xorg-xinit xorg-apps xclip xdo bspwm sxhkd rofi nitrogen unclutter
+AUR:polybar picom-git st
+```
+
+??
+xdg-user-dirs 
+??
 
 Terminal:
 ```
 alacritty
 asciiquarium
-asciidoc
 bash-completion
 cmatrix
 cool-retro-term
@@ -51,14 +80,23 @@ man-pages
 neofetch
 screenfetch
 tldr
+sl
+```
+
+Games:
+```
+aisleriot
+gnuchess gnome-chess
+steam
+lutris
+ppsspp
+AUR:rpcs3-bin
+AUR:spacecadetpinball-git
+AUR:yuzu-mainline-bin
 ```
 
 WM:
-
 ```
-bspwm
-rofi
-
 ```
 
 Utils:
@@ -71,26 +109,49 @@ go
 imagemagick
 iputils
 lua
-volta
+AUR:volta-bin
 ufw
+archlinux-java-run
+composer
+docker docker-compose docker-machine
+fcitx5 fcitx5-anthy fcitx5-configtool fcitx5-gtk fcitx5-qt
+gammy
+ripgrep
+pass pass-otp
+youtube-dl
+AUR:youtube-dl yt-dlp phantomjs
+AUR:qimgv
+zathura zathura-pdf-mupdf
+rustup
+screenkey
+stow
+xdg-user-dirs (and the wiki - th esetup part as well!)
 ```
 
 Apps:
 ```
+AUR:librewolf-bin
+AUR:insomnia-bin
+AUR:rustdesk-bin
+AUR:zoom
 discord
-firefox
-firefox-developer-edition
 gimp
-insomnia-bin
 obs-studio
 qbittorrent
-rustdesk-bin
 slack-desktop
 steam
 telegram-desktop
 vlc
-zoom-system-qt
+thunar thunar-archive-plugin thunar-volman gvfs
+audacity
+dbeaver
+deadbeef
+dino
+gedit
+irssi
+libreoffice-fresh
 ```
+
 
 Fonts:
 ```
