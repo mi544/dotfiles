@@ -65,7 +65,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-Plug 'jremmen/vim-ripgrep'
+Plug 'mi544/vim-ripgrep'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " update the parsers on update
 Plug 'nvim-treesitter/playground'

@@ -1,9 +1,9 @@
 # delay to be used for :delay keyword
-delay=0.5
+delay=0.3
 # rofi-pass needs to close itself before it can type passwords. Set delay here.
-wait=0.3
+wait=0.2
 # delay between keypresses when typing (in ms)
-xdotool_delay=15
+xdotool_delay=8
 
 ## Programs to be used
 # Editor

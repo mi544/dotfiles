@@ -31,6 +31,7 @@ Installation:
 ```
 base base-devel linux linux-firmware linux-zen man-db man-pages vim amd-ucode sudo git
 networkmanager networkmanager-openvpn bluez bluez-utils alsa-utils pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer
+jack2 lib32-jack2 jack2-dbus pulseaudio-jack realtime-privileges
 grub efibootmgr
 pamixer pavucontrol
 ```
@@ -38,7 +39,7 @@ pamixer pavucontrol
 ```
 adduser -m ..
 groupadd docker
-usermod -aG wheel,audio,video,storage,docker ..
+usermod -aG wheel,audio,realtime,video,storage,docker ..
 visudo
 ```
 
@@ -126,12 +127,15 @@ rustup
 screenkey
 stow
 xdg-user-dirs (and the wiki - th esetup part as well!)
+gamemode
+jq
 ```
 
 Apps:
 ```
 AUR:librewolf-bin
 AUR:insomnia-bin
+AUR:reaper-bin
 AUR:rustdesk-bin
 AUR:zoom
 AUR:deadbeef
@@ -143,7 +147,7 @@ qbittorrent
 steam
 telegram-desktop
 vlc
-thunar thunar-archive-plugin thunar-volman gvfs
+thunar thunar-archive-plugin thunar-volman gvfs raw-thumbnailer ffmpegthumbnailer tumbler thunar-media-tags-plugin
 audacity
 dbeaver
 dino
@@ -152,10 +156,10 @@ irssi
 libreoffice-fresh
 ```
 
-
 Fonts:
 ```
 gnu-free-fonts
+otf-ipafont ttf-hanazono
 ```
 
 Potentially(?):
@@ -168,5 +172,8 @@ terminus-font
 TBD: alsa, pulse (with mixers), bluez, networkmanager, wine,
 intel video (installation), japanese fonts
 
-feral gamemode
 steam settings preserve
+add Auto power-on after boot and other processes related to setting up bluetooth
+https://wiki.archlinux.org/title/Bluetooth#Auto_power-on_after_boot
+
+archivers list packages
