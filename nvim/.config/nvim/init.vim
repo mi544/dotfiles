@@ -34,8 +34,8 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|
 set shortmess+=c
 
-" change working directory when browsing in netrw
-let g:netrw_keepdir = 0
+" don't change working directory when browsing in netrw
+let g:netrw_keepdir = 1
 " change default copy command to allow recursive copying
 let g:netrw_localcopydircmd = 'cp -r'
 let g:netrw_localmkdir = 'mkdir -p'
@@ -65,12 +65,12 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-Plug 'mi544/vim-ripgrep'
-
+" Tree Sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " update the parsers on update
 Plug 'nvim-treesitter/playground'
-" Prettier
-" Plug 'sbdchd/neoformat'
+
+Plug 'ThePrimeagen/harpoon'
+Plug 'mi544/vim-ripgrep'
 
 " Vue
 " Plug 'posva/vim-vue'
@@ -82,6 +82,17 @@ set termguicolors
 colorscheme gruvbox
 
 set completeopt=menuone,noselect
+
+lua << EOF
+require("harpoon").setup({
+  global_settings = {
+    save_on_toggle = false,
+    save_on_change = true,
+    enter_on_sendcmd = false,
+    excluded_filetypes = { "harpoon" }
+  },
+})
+EOF
 
 lua << EOF
 require'compe'.setup({
@@ -309,17 +320,28 @@ inoremap <silent><expr> <C-CR> compe#confirm('<CR>')
 " ~~~~~~~~~~~~~~~~~~~~~~
 " GIT FUGITIVE
 " ~~~~~~~~~~~~~~~~~~~~~~
-nmap <leader>gs :G<CR>
-nmap <leader>gf :diffget //2<CR>
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gb :Git blame<CR>
-nmap <leader>gp :Git push origin 
-nmap <leader>gph :Git push origin HEAD<CR>
-nmap <leader>gpp :Git pull<CR>
-nmap <leader>gppb :Git pull origin 
-nmap <leader>gc :Git commit<CR>
-nmap <leader>gcc :Git checkout 
-nmap <leader>gccb :Git checkout -b 
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gf :diffget //2<CR>
+nnoremap <leader>gh :diffget //3<CR>
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>gp :Git push origin 
+nnoremap <leader>gph :Git push origin HEAD<CR>
+nnoremap <leader>gpp :Git pull<CR>
+nnoremap <leader>gppb :Git pull origin 
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>gcc :Git checkout 
+nnoremap <leader>gccb :Git checkout -b 
+
+" ~~~~~~~~~~~~~~~~~~~~~~
+" HARPOON
+" ~~~~~~~~~~~~~~~~~~~~~~
+nnoremap <silent><C-a> :lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent><C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+
+nnoremap <silent><C-h> :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent><C-t> :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent><C-n> :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent><C-s> :lua require("harpoon.ui").nav_file(4)<CR>
 
 " ~~~~~~~~~~~~~~~~~~~~~~
 " PROJECT SPECIFIC REMAPS
