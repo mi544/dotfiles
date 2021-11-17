@@ -75,6 +75,7 @@ cmatrix
 cool-retro-term
 figlet
 htop
+zenith
 lolcat
 man-db
 man-pages

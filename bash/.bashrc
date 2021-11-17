@@ -30,5 +30,6 @@ alias ytdl="yt-dlp -f bestvideo+bestaudio"
 alias ytmpv="mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace"
 
 alias nn="neofetch"
+alias zz="zenith"
 
 PS1='[\u@\h \W]\$ '
