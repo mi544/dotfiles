@@ -50,6 +50,7 @@ CAPTURE xinit setup
 CAPTURE `/etc/pacman.conf`
 systemctl enable NetworkManager
 systemctl enable bluetooth
+xdg-mime default librewolf.desktop x-scheme-handler/http
 !!!
 
 
@@ -61,10 +62,6 @@ xf86-video-amdgpu mesa lib32-mesa lib32-vulkan-radeon vulkan-radeon
 alacritty xorg-server xorg-xinit xorg-apps xclip xdo bspwm sxhkd rofi nitrogen unclutter
 AUR:polybar picom-git st
 ```
-
-??
-xdg-user-dirs 
-??
 
 Terminal:
 ```
@@ -105,7 +102,9 @@ Utils:
 ```
 curl
 wget
+lshw
 ffmpeg
+xdg-user-dirs xdg-utils perl-file-mimeinfo
 gnome-screenshot
 go
 imagemagick

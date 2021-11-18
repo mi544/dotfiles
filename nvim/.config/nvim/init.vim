@@ -69,7 +69,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " update the parsers on update
 Plug 'nvim-treesitter/playground'
 
-Plug 'ThePrimeagen/harpoon'
+Plug 'mi544/harpoonish.nvim'
 Plug 'mi544/vim-ripgrep'
 
 " Vue
@@ -335,13 +335,17 @@ nnoremap <leader>gccb :Git checkout -b
 " ~~~~~~~~~~~~~~~~~~~~~~
 " HARPOON
 " ~~~~~~~~~~~~~~~~~~~~~~
-nnoremap <silent><C-a> :lua require("harpoon.mark").add_file()<CR>
-nnoremap <silent><C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent> <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <silent> <leader>dr :lua require("harpoon.mark").clear_all()<CR>
 
-nnoremap <silent><C-h> :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <silent><C-t> :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <silent><C-n> :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <silent><C-s> :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent> <C-h> :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent> <leader>dh :lua require("harpoon.mark").add_file(nil, 1)<CR>
+nnoremap <silent> <C-t> :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent> <leader>dt :lua require("harpoon.mark").add_file(nil, 2)<CR>
+nnoremap <silent> <C-n> :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent> <leader>dn :lua require("harpoon.mark").add_file(nil, 3)<CR>
+nnoremap <silent> <C-s> :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent> <leader>ds :lua require("harpoon.mark").add_file(nil, 4)<CR>
 
 " ~~~~~~~~~~~~~~~~~~~~~~
 " PROJECT SPECIFIC REMAPS
