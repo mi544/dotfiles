@@ -1,6 +1,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export MONITOR_P="DisplayPort-0"
+export MODE_P_NAME="1920x1080-165Hz"
+export MODE_P_CVT=$(cvt 1920 1080 164.92 | sed '1d' | sed -r 's#"(.*)"#'"$MODE_P_NAME"'#' | sed -r 's#  # #g')
+export MOUSE='ASUSTeK ROG STRIX IMPACT II WIRELESS'
+
 export EDITOR="vim"
 
 export VOLTA_HOME="$HOME/.volta"
@@ -30,6 +35,7 @@ alias ytdl="yt-dlp -f bestvideo+bestaudio"
 alias ytmpv="mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace"
 
 alias nn="neofetch"
+alias zenith="zenith --disable-history -r 1000 -c 30 -d 20 -n 10 -g 20 -p 20"
 alias zz="zenith"
 
 PS1='[\u@\h \W]\$ '
