@@ -8,9 +8,9 @@ picom --experimental-backends &
 nitrogen --restore &
 gammy &
 xinput set-prop 'ASUSTeK ROG STRIX IMPACT II WIRELESS' 307 -0.3
-xrandr --newmode "$MODE_P_CVT"
-xrandr --addmode "$MONITOR_P" "$MODE_P_NAME"
-xrandr --output "$MONITOR_P" --mode "$MODE_P_NAME"
+xrandr --newmode $MODE_P_CVT
+xrandr --addmode $MONITOR_P \""$MODE_P_NAME"\"
+xrandr --output "$MONITOR_P" --mode \""$MODE_P_NAME"\"
 
 ### MONITORS ###
 bspc monitor -d 2 3 4 7 8 9 0 -

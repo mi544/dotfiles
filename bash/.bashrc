@@ -3,7 +3,7 @@
 
 export MONITOR_P="DisplayPort-0"
 export MODE_P_NAME="1920x1080-165Hz"
-export MODE_P_CVT=$(cvt 1920 1080 164.92 | sed '1d' | sed -r 's#"(.*)"#'"$MODE_P_NAME"'#' | sed -r 's#  # #g')
+export MODE_P_CVT=$(cvt 1920 1080 164.92 | sed '1d' | sed -r 's#Modeline\s+".*"(.*)$#'\""$MODE_P_NAME"\"\\1'#')
 export MOUSE='ASUSTeK ROG STRIX IMPACT II WIRELESS'
 
 export EDITOR="vim"
