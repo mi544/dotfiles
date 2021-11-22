@@ -7,7 +7,11 @@ $HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
 nitrogen --restore &
 gammy &
-xinput set-prop 'ASUSTeK ROG STRIX IMPACT II WIRELESS' 307 -0.3
+
+mouse_id_list="$(xinput | grep "$MOUSE"'.*pointer.*' | sed 's/.*id=\([0-9]\+\)[[:space:]].*/\1/')"
+mouse_id_list=$(echo $mouse_id_list)
+for mouse_id in $mouse_id_list; do xinput set-prop "$mouse_id" 307 -0.3; done
+
 xrandr --newmode $MODE_P_CVT
 xrandr --addmode $MONITOR_P \""$MODE_P_NAME"\"
 xrandr --output "$MONITOR_P" --mode \""$MODE_P_NAME"\"
