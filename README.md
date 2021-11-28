@@ -66,6 +66,8 @@ AUR:polybar picom-git st
 Terminal:
 ```
 alacritty
+broot
+exa
 asciiquarium
 bash-completion
 cmatrix
@@ -79,7 +81,6 @@ man-pages
 neofetch
 screenfetch
 tldr
-AUR:sl
 ```
 
 Games:
@@ -92,6 +93,8 @@ ppsspp
 AUR:rpcs3-bin
 AUR:spacecadetpinball-git
 AUR:yuzu-mainline-bin
+AUR:airshipper
+AUR:hmcl-bin
 ```
 
 WM:
@@ -102,6 +105,7 @@ Utils:
 ```
 curl
 wget
+AUR:aria2-fast
 lshw
 ffmpeg
 xdg-user-dirs xdg-utils perl-file-mimeinfo
@@ -115,11 +119,10 @@ ufw
 archlinux-java-run(?)
 composer
 docker docker-compose docker-machine
-fcitx5 fcitx5-anthy fcitx5-configtool fcitx5-gtk fcitx5-qt
+fcitx5 fcitx5-anthy fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-nord fcitx5-table-other
 AUR:gammy-git
 ripgrep
 pass pass-otp
-youtube-dl
 AUR:youtube-dl-git yt-dlp-git phantomjs-bin
 AUR:qimgv
 zathura zathura-pdf-mupdf
@@ -139,7 +142,6 @@ AUR:reaper-bin
 AUR:rustdesk-bin
 AUR:zoom
 AUR:deadbeef
-AUR:slack-desktop
 discord
 gimp
 obs-studio

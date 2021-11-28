@@ -19,9 +19,9 @@ export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 export CACA_DRIVER="ncurses"
 
-alias ls="ls --color=auto"
-alias ll="ls -loh"
-alias la="ls -laoh"
+alias ls="exa --color=always --group-directories-first"
+alias ll="ls -l"
+alias la="ls -la"
 alias headn="head -n 15"
 alias tailn="tail -n 15"
 
@@ -33,9 +33,12 @@ alias dvterm="$HOME/bash-scripts/utils/download-video-for-terminal.sh"
 alias pvterm="$HOME/bash-scripts/utils/terminal-play-video.sh $1"
 alias ytdl="yt-dlp -f bestvideo+bestaudio"
 alias ytmpv="mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace"
+alias aria2d="aria2c -c -s 257 -x 257 -k 1M -j 1"
 
 alias nn="neofetch"
 alias zenith="zenith --disable-history -r 1000 -c 30 -d 20 -n 10 -g 20 -p 20"
 alias zz="zenith"
 
 PS1='[\u@\h \W]\$ '
+
+source /home/mi/.config/broot/launcher/bash/br
