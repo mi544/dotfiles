@@ -12,6 +12,15 @@ mouse_id_list="$(xinput | grep "$MOUSE"'.*pointer.*' | sed 's/.*id=\([0-9]\+\)[[
 mouse_id_list=$(echo $mouse_id_list)
 for mouse_id in $mouse_id_list; do xinput set-prop "$mouse_id" 307 -0.3; done
 
+#xinput list-props 'Wireless Controller Touchpad' | rg '.*Tapping Enabled \((\d+)\).*' -r '$1'
+xinput set-prop 'Wireless Controller Touchpad' 307 0.5
+xinput set-prop 'Wireless Controller Touchpad' 568 1
+xinput set-prop 'Wireless Controller Touchpad' 296 1
+
+xinput set-prop 'Sony Interactive Entertainment Wireless Controller Touchpad' 307 0.5
+xinput set-prop 'Sony Interactive Entertainment Wireless Controller Touchpad' 568 1
+xinput set-prop 'Sony Interactive Entertainment Wireless Controller Touchpad' 296 1
+
 xrandr --newmode $MODE_P_CVT
 xrandr --addmode $MONITOR_P \""$MODE_P_NAME"\"
 xrandr --output "$MONITOR_P" --mode \""$MODE_P_NAME"\"
