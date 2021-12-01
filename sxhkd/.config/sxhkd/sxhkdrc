@@ -85,6 +85,10 @@ alt + space
 alt + p
   rofi-pass
 
+# translate
+super + s
+  $HOME/bash-scripts/utils/translate.sh en-ru
+
 ###################
 ### APP ACTIONS ###
 ###################
