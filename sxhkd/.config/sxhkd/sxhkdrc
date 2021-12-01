@@ -19,6 +19,8 @@ alt + m
 # set node state
 alt + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+alt + shift + s
+	bspc node -g sticky
 
 ### FOCUS/SWAP ###
 
@@ -87,7 +89,15 @@ alt + p
 
 # translate
 super + s
-  $HOME/bash-scripts/utils/translate.sh en-ru
+  $HOME/bash-scripts/utils/translate.sh en-ru &
+
+# translate all
+super + alt + s
+  $HOME/bash-scripts/utils/translate.sh en-ru all &
+
+# translate vim
+super + shift + s
+  $HOME/bash-scripts/utils/translate.sh en-ru vim &
 
 ###################
 ### APP ACTIONS ###

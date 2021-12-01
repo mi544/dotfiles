@@ -1,9 +1,28 @@
 #!/usr/bin/env bash
 
-tr_table=$(cat "$(dirname "$0")/$1.table")
+tr_lang=$1
+tr_mode=$2
+
+tr_table=$(cat "$(dirname "$0")/$tr_lang.table")
 
 sleep 0.2
-xdotool key ctrl+x
+if [[ "$tr_mode" == "all" ]]; then
+    xdotool key ctrl+a
+    sleep 0.5
+    xdotool key ctrl+x
+elif [[ "$tr_mode" == "vim" ]]; then
+    sleep 0.5
+    xdotool key quotedbl+plus
+    sleep 0.1
+    xdotool key y
+    sleep 0.2
+    xdotool key g+v
+    sleep 0.1
+    xdotool key d
+else
+    xdotool key ctrl+x
+fi
+
 contents=$(xclip -o -selection clipboard)
 contents_tr=$contents
 
@@ -17,4 +36,10 @@ do
 done
 
 echo -n "$contents_tr" | xclip -selection clipboard
-xdotool key ctrl+v
+
+if [[ "$tr_mode" == "vim" ]]; then
+    xdotool key quotedbl+plus+p
+else
+    xdotool key ctrl+v
+fi
+
