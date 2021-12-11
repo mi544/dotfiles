@@ -13,7 +13,7 @@ do
     for i in $(seq 5)
     do
       wid=$(echo $librewolf_win_list | awk -F: '{print $1}')
-      xdotool search --class LibreWolf \
+      xdotool search --class "LibreWolf" \
         set_window --class "LibreWolf-$1"
       bspc node $wid -d $2
       sleep 0.3

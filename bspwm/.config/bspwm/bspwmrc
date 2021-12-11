@@ -10,7 +10,7 @@ gammy &
 
 mouse_id_list="$(xinput | grep "$MOUSE"'.*pointer.*' | sed 's/.*id=\([0-9]\+\)[[:space:]].*/\1/')"
 mouse_id_list=$(echo $mouse_id_list)
-for mouse_id in $mouse_id_list; do xinput set-prop "$mouse_id" 307 -0.3; done
+for mouse_id in $mouse_id_list; do xinput set-prop "$mouse_id" 307 0; done
 
 #xinput list-props 'Wireless Controller Touchpad' | rg '.*Tapping Enabled \((\d+)\).*' -r '$1'
 xinput set-prop 'Wireless Controller Touchpad' 307 0.5

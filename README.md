@@ -30,8 +30,9 @@ typescript typescript-language-server vls bash-language-server
 Installation:
 ```
 base base-devel linux linux-firmware linux-zen man-db man-pages vim amd-ucode sudo git
-networkmanager networkmanager-openvpn bluez bluez-utils alsa-utils pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer
-jack2 lib32-jack2 jack2-dbus pulseaudio-jack realtime-privileges
+networkmanager networkmanager-openvpn
+bluez bluez-utils
+pipewire pipewire-docs pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire lib32-pipewire-jack wireplumber helvum gst-plugin-pipewire
 grub efibootmgr
 pamixer pavucontrol
 ```
@@ -39,7 +40,7 @@ pamixer pavucontrol
 ```
 adduser -m ..
 groupadd docker
-usermod -aG wheel,audio,realtime,video,storage,docker ..
+usermod -aG wheel,audio,realtime,video,storage,docker,libvirt ..
 visudo
 ```
 
@@ -74,7 +75,6 @@ cmatrix
 cool-retro-term
 figlet
 htop
-zenith
 lolcat
 man-db
 man-pages
@@ -103,6 +103,8 @@ WM:
 
 Utils:
 ```
+libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip
+exiv2
 curl
 wget
 AUR:aria2-fast
@@ -116,7 +118,6 @@ iputils
 lua
 AUR:volta-bin
 ufw
-archlinux-java-run(?)
 composer
 docker docker-compose docker-machine
 fcitx5 fcitx5-anthy fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-nord fcitx5-table-other
@@ -132,6 +133,8 @@ stow
 xdg-user-dirs (and the wiki - th esetup part as well!)
 gamemode
 jq
+maria-db
+AUR:xwinwrap-git
 ```
 
 Apps:
@@ -143,6 +146,8 @@ AUR:rustdesk-bin
 AUR:zoom
 AUR:deadbeef
 discord
+inkscape
+aegisub
 gimp
 obs-studio
 qbittorrent
@@ -175,7 +180,15 @@ TBD: alsa, pulse (with mixers), bluez, networkmanager, wine,
 intel video (installation), japanese fonts
 
 steam settings preserve
+libvirt setup (enabling services?)
 add Auto power-on after boot and other processes related to setting up bluetooth
 https://wiki.archlinux.org/title/Bluetooth#Auto_power-on_after_boot
 
+maria-db post install process
+
 archivers list packages
+set XDG vars
+
+```
+xdg-mime default org.pwmt.zathura.desktop application/pdf
+```

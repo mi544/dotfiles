@@ -8,6 +8,9 @@ export MOUSE='ASUSTeK ROG STRIX IMPACT II WIRELESS'
 
 export EDITOR="vim"
 
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
@@ -29,16 +32,16 @@ alias list-cursors="find /usr/share/icons ~/.local/share/icons ~/.icons -type d 
 alias list-themes="find /usr/share/themes /usr/local/share/themes ~/.local/share/themes ~/.themes -type d | grep -v 'No such file'"
 alias list-fonts="fc-list"
 alias recent-packages="$HOME/bash-scripts/utils/recent-packages.sh"
+alias path="echo $PATH | sed -r 's/:/\n/g'"
 alias dvterm="$HOME/bash-scripts/utils/download-video-for-terminal.sh"
 alias pvterm="$HOME/bash-scripts/utils/terminal-play-video.sh $1"
+alias vdl="yt-dlp --downloader aria2c --downloader-args 'aria2c:-c -j 8 -s 8 -x 8 -k 1M'"
 alias ytdl="yt-dlp -f bestvideo+bestaudio"
 alias ytmpv="mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace"
-alias aria2d="aria2c -c -s 257 -x 257 -k 1M -j 1"
+alias d="aria2c -c -j 8 -s 8 -x 8 -k 1M"
+alias df="aria2c -c -s 499 -x 499 -k 1M -j 1"
+alias c="ffmpeg -video_size 1920x1080 -framerate 60 -f x11grab -i :0.0+0,0 '$HOME/Capture/$(date +%s).mp4'"
 
 alias nn="neofetch"
-alias zenith="zenith --disable-history -r 1000 -c 30 -d 20 -n 10 -g 20 -p 20"
-alias zz="zenith"
 
 PS1='[\u@\h \W]\$ '
-
-source /home/mi/.config/broot/launcher/bash/br

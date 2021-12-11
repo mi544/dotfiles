@@ -99,6 +99,14 @@ super + alt + s
 super + shift + s
   $HOME/bash-scripts/utils/translate.sh en-ru vim &
 
+# get links in the browser
+super + shift + d
+  xdotool mousemove 1808 106 && xdotool click 1 &
+
+# download from clipboard
+super + d
+  $HOME/bash-scripts/utils/download-xclip.sh &
+
 ###################
 ### APP ACTIONS ###
 ###################
