@@ -20,7 +20,10 @@ alt + m
 alt + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 alt + shift + s
-	bspc node -g sticky
+	bspc node -g sticky; bspc node -l above
+# normalize
+alt + shift + n
+	bspc node -g !sticky; bspc node -l normal
 
 ### FOCUS/SWAP ###
 
@@ -115,6 +118,9 @@ super + d
 Print
   gnome-screenshot
 
+# Set random wallpaper
+super + i
+  $HOME/bash-scripts/utils/set-random-wallpaper.sh
 # Raise volume
 super + a
   $HOME/bash-scripts/utils/raise-volume.sh 3

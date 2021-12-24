@@ -51,6 +51,7 @@ CAPTURE xinit setup
 CAPTURE `/etc/pacman.conf`
 systemctl enable NetworkManager
 systemctl enable bluetooth
+systemctl enable fcron
 xdg-mime default librewolf.desktop x-scheme-handler/http
 !!!
 
@@ -66,6 +67,7 @@ AUR:polybar picom-git st
 
 Terminal:
 ```
+rsfetch-bin
 alacritty
 broot
 exa
@@ -104,6 +106,8 @@ WM:
 Utils:
 ```
 libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip
+libspeedhack-git
+fcron
 exiv2
 curl
 wget
@@ -125,14 +129,17 @@ AUR:gammy-git
 ripgrep
 pass pass-otp
 AUR:youtube-dl-git yt-dlp-git phantomjs-bin
+AUR:gallery-dl-git
 AUR:qimgv
 zathura zathura-pdf-mupdf
 rustup
+python
 screenkey
 stow
 xdg-user-dirs (and the wiki - th esetup part as well!)
 gamemode
 jq
+AUR:pup-git
 maria-db
 AUR:xwinwrap-git
 ```
@@ -192,3 +199,10 @@ set XDG vars
 ```
 xdg-mime default org.pwmt.zathura.desktop application/pdf
 ```
+java
+
+
+
+nmap dnsutils whois stunnel hping openbsd-netcat
+pip install python-lsp-server
+pip install 'python-lsp-server[all]'

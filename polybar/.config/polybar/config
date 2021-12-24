@@ -120,8 +120,6 @@ poll-interval = 5
 
 [module/pulseaudio]
 type = internal/pulseaudio
-; `pacmd list-sinks`
-sink = alsa_output.pci-0000_07_00.6.analog-stereo
 use-ui-max = true
 interval = 3
 click-right = pavucontrol
@@ -166,3 +164,5 @@ format-padding = 3
 tail = true
 interval = 0
 exec = $HOME/bash-scripts/polybar/screen-temp.sh
+
+; vim:ft=dosini

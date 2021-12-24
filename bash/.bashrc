@@ -6,13 +6,13 @@ export MODE_P_NAME="1920x1080-165Hz"
 export MODE_P_CVT=$(cvt 1920 1080 164.92 | sed '1d' | sed -r 's#Modeline\s+".*"(.*)$#'\""$MODE_P_NAME"\"\\1'#')
 export MOUSE='ASUSTeK ROG STRIX IMPACT II WIRELESS'
 
+export VISUAL="vim"
 export EDITOR="vim"
 
 export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
-
+export GEM_HOME_ALT="$HOME/.local/share/gem/ruby/3.0.0"
 export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$VOLTA_HOME/bin:$GEM_HOME/bin:$GEM_HOME_ALT/bin:$HOME/.local/bin:$PATH"
 
 export MONITOR="eDP1"
 
@@ -40,7 +40,9 @@ alias ytdl="yt-dlp -f bestvideo+bestaudio"
 alias ytmpv="mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace"
 alias d="aria2c -c -j 8 -s 8 -x 8 -k 1M"
 alias df="aria2c -c -s 499 -x 499 -k 1M -j 1"
-alias c="ffmpeg -video_size 1920x1080 -framerate 60 -f x11grab -i :0.0+0,0 '$HOME/Capture/$(date +%s).mp4'"
+alias c="$HOME/bash-scripts/utils/capture-no-audio.sh"
+alias ca="$HOME/bash-scripts/utils/capture-with-audio.sh"
+alias rr='rsfetch --cpu --distro --editor --kernel --neofetch --no-caps --shell --terminal --uptime --user --userat --packages pacman --logo --logofile "$HOME/ascii/anime-2.art" | sed "s# with Radeon Graphics (16) @ #@#" | sed "s#(pacman)#(aura)#"'
 
 alias nn="neofetch"
 

@@ -180,6 +180,8 @@ require'lspconfig'.bashls.setup{}
 
 require'lspconfig'.phpactor.setup{}
 
+require'lspconfig'.pylsp.setup{}
+
 require'lspconfig'.rls.setup{
   root_dir = require'lspconfig'.util.root_pattern("Cargo.toml", "rust-project.json")
 }
@@ -274,6 +276,9 @@ vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 " expected behavior for Y
 nnoremap Y y$
+" expected behavior for )
+nnoremap ) d0
+nnoremap ( d0i
 nnoremap <leader>Y "+y$
 
 " Keeping it centered
@@ -310,7 +315,7 @@ nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>vsd :lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <leader>vl :lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap <leader>vn :lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <leader>vll :call LspLocationList()<CR>
 

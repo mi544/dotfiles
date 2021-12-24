@@ -5,7 +5,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 fcitx5 -rd &
 $HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
-nitrogen --restore &
+$HOME/bash-scripts/utils/set-random-wallpaper.sh &
 gammy &
 
 mouse_id_list="$(xinput | grep "$MOUSE"'.*pointer.*' | sed 's/.*id=\([0-9]\+\)[[:space:]].*/\1/')"
