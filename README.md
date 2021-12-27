@@ -107,6 +107,7 @@ Utils:
 ```
 libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip
 libspeedhack-git
+libqalculate
 fcron
 exiv2
 curl
@@ -139,7 +140,7 @@ stow
 xdg-user-dirs (and the wiki - th esetup part as well!)
 gamemode
 jq
-AUR:pup-git
+AUR:pup-git fq
 maria-db
 AUR:xwinwrap-git
 ```
