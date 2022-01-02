@@ -23,7 +23,7 @@ alt + shift + s
 	bspc node -g sticky; bspc node -l above
 # normalize
 alt + shift + n
-	bspc node -g !sticky; bspc node -l normal
+	bspc node -g sticky=off; bspc node -l normal
 
 ### FOCUS/SWAP ###
 
@@ -105,10 +105,6 @@ super + shift + s
 # get links in the browser
 super + shift + d
   xdotool mousemove 1808 106 && xdotool click 1 &
-
-# download from clipboard
-super + d
-  $HOME/bash-scripts/utils/download-xclip.sh &
 
 ###################
 ### APP ACTIONS ###

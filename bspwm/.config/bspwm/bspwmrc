@@ -5,7 +5,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 fcitx5 -rd &
 $HOME/.config/polybar/launch.sh &
 picom --experimental-backends &
-$HOME/bash-scripts/utils/set-random-wallpaper.sh &
+nitrogen --set-zoom-fill --restore &
 gammy &
 
 mouse_id_list="$(xinput | grep "$MOUSE"'.*pointer.*' | sed 's/.*id=\([0-9]\+\)[[:space:]].*/\1/')"
@@ -62,6 +62,7 @@ bspc config pointer_follows_focus false
 
 ### BSPWM RULES ###
 bspc rule -a 'Alacritty:video' state=pseudo_tiled
+bspc rule -a 'Deadbeef' state=pseudo_tiled
 bspc rule -a 'LibreWolf:Devtools' state=floating
 bspc rule -a 'LibreWolf:Toolkit:Picture-in-Picture' state=floating sticky=on focus=off
 bspc rule -a 'Nitrogen' state=floating

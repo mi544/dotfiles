@@ -4,8 +4,6 @@ cfg_path="$HOME/.config/nitrogen/bg-saved.cfg"
 
 rnd_wp_path=$(find "$HOME/Wallpapers" -regex '.*\.\(jpg\|png|gif\)' | shuf -n 1)
 
-echo $rnd_wp_path >> ~/1.ooo
-
 sed -i 's#file=.*#file='"$rnd_wp_path"'#' "$cfg_path"
 
 nitrogen --set-zoom-fill --restore

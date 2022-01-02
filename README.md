@@ -52,6 +52,7 @@ CAPTURE `/etc/pacman.conf`
 systemctl enable NetworkManager
 systemctl enable bluetooth
 systemctl enable fcron
+systemctl enable ntpd
 xdg-mime default librewolf.desktop x-scheme-handler/http
 !!!
 
@@ -75,6 +76,7 @@ asciiquarium
 bash-completion
 cmatrix
 cool-retro-term
+asciinema
 figlet
 htop
 lolcat
@@ -88,8 +90,11 @@ tldr
 Games:
 ```
 aisleriot
-gnuchess gnome-chess
+gnuchess
+knights
+gnome-chess
 steam
+AUR:protonup-git
 lutris
 ppsspp
 AUR:rpcs3-bin
@@ -108,9 +113,14 @@ Utils:
 libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip
 libspeedhack-git
 libqalculate
+archiso
+asciinema
 fcron
+-a rsync
+reflector
 exiv2
 curl
+ntp
 wget
 AUR:aria2-fast
 lshw
@@ -131,7 +141,7 @@ ripgrep
 pass pass-otp
 AUR:youtube-dl-git yt-dlp-git phantomjs-bin
 AUR:gallery-dl-git
-AUR:qimgv
+AUR:qimgv-git
 zathura zathura-pdf-mupdf
 rustup
 python
@@ -139,7 +149,7 @@ screenkey
 stow
 xdg-user-dirs (and the wiki - th esetup part as well!)
 gamemode
-jq
+jq tidy
 AUR:pup-git fq
 maria-db
 AUR:xwinwrap-git
@@ -147,6 +157,8 @@ AUR:xwinwrap-git
 
 Apps:
 ```
+filelight
+AUR:font-manager-git
 AUR:librewolf-bin
 AUR:insomnia-bin
 AUR:reaper-bin

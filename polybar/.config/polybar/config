@@ -11,7 +11,7 @@ alert = #d23b22
 [settings]
 ; Enables pseudo-transparency for the bar
 ; If set to true the bar can be transparent without a compositor.
-pseudo-transparency = false
+pseudo-transparency = true
 
 [global/wm]
 margin-bottom = 0
