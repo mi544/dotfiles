@@ -97,6 +97,7 @@ steam
 AUR:protonup-git
 lutris
 ppsspp
+mgba-qt
 AUR:rpcs3-bin
 AUR:spacecadetpinball-git
 AUR:yuzu-mainline-bin
@@ -157,6 +158,7 @@ AUR:xwinwrap-git
 
 Apps:
 ```
+kate
 filelight
 AUR:font-manager-git
 AUR:librewolf-bin
@@ -175,10 +177,8 @@ steam
 telegram-desktop
 vlc
 thunar thunar-archive-plugin thunar-volman gvfs raw-thumbnailer ffmpegthumbnailer tumbler thunar-media-tags-plugin
-audacity
 dbeaver
 dino
-gedit
 irssi
 libreoffice-fresh
 ```
