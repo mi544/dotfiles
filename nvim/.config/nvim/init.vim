@@ -80,6 +80,8 @@ call plug#end()
 
 set termguicolors
 colorscheme gruvbox
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 set completeopt=menuone,noselect
 
