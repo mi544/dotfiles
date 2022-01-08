@@ -6,20 +6,24 @@ Use [GNU Stow](https://www.gnu.org/software/stow/) to load configuration for
 each package.
 
 To stow individual packages
-```shell
-$ stow <package>
+```bash
+stow <package>
 # for example
-$ stow nvim
+stow nvim
 ```
 
-Or run the `stow.sh` script to remove and stow all packages. All existing files
-that stow will operate on will be removed from `$HOME/.config` before stowing
+A script that automatically removes existing destination files and stows all
+the packages automatically is in the works.
 
 ## Node
 
-Node versioning is handled through [Volta](https://volta.sh/)  
+Node versioning and global npm package management is handled through
+[Volta](https://volta.sh/)  
+
+Run `volta install` with the following arguments
 
 ```
+node@lts
 npm-check-updates serve lerna
 eslint eslint_d prettier
 typescript typescript-language-server vls bash-language-server
@@ -29,7 +33,9 @@ typescript typescript-language-server vls bash-language-server
 
 Installation:
 ```
-base base-devel linux linux-firmware linux-zen man-db man-pages vim amd-ucode sudo git
+base base-devel bash-completion
+linux linux-headers linux-firmware linux-zen linux-zen-headers amd-ucode 
+man-db man-pages vim sudo git
 networkmanager networkmanager-openvpn
 bluez bluez-utils
 pipewire pipewire-docs pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire lib32-pipewire-jack wireplumber helvum gst-plugin-pipewire
@@ -61,38 +67,31 @@ Uncomment lib32 in pacman.conf
 
 ```
 --aura---
+xorg-server xorg-xinit xorg-apps xclip xdo xdotool
 xf86-video-amdgpu mesa lib32-mesa lib32-vulkan-radeon vulkan-radeon
-alacritty xorg-server xorg-xinit xorg-apps xclip xdo bspwm sxhkd rofi nitrogen unclutter
-AUR:polybar picom-git st
+bspwm sxhkd rofi nitrogen unclutter
+AUR:polybar picom-git
 ```
 
 Terminal:
 ```
-rsfetch-bin
 alacritty
-broot
 exa
 asciiquarium
-bash-completion
 cmatrix
 cool-retro-term
 asciinema
 figlet
 htop
 lolcat
-man-db
-man-pages
 neofetch
-screenfetch
 tldr
 ```
 
 Games:
 ```
 aisleriot
-gnuchess
-knights
-gnome-chess
+gnuchess knights gnome-chess
 steam
 AUR:protonup-git
 lutris
@@ -105,24 +104,18 @@ AUR:airshipper
 AUR:hmcl-bin
 ```
 
-WM:
-```
-```
-
 Utils:
 ```
 libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip
-libspeedhack-git
+AUR:libspeedhack-git
 libqalculate
 archiso
 asciinema
 fcron
--a rsync
 reflector
 exiv2
-curl
+curl wget
 ntp
-wget
 AUR:aria2-fast
 lshw
 ffmpeg
@@ -219,3 +212,10 @@ java
 nmap dnsutils whois stunnel hping openbsd-netcat
 pip install python-lsp-server
 pip install 'python-lsp-server[all]'
+
+```
+rustup install stable
+rustup component add rls rust-analysis rust-src
+```
+
+capture vim lsp packages into 1 category

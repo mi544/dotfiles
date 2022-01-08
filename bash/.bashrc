@@ -41,8 +41,9 @@ alias ytmpv="mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-leve
 alias d="aria2c -c -j 8 -s 8 -x 8 -k 1M"
 alias df="aria2c -c -s 499 -x 499 -k 1M -j 1"
 alias c="$HOME/bash-scripts/utils/capture-no-audio.sh"
+alias cl="$HOME/bash-scripts/utils/capture-no-audio-losless.sh"
 alias ca="$HOME/bash-scripts/utils/capture-with-audio.sh"
-alias rr='rsfetch --cpu --distro --editor --kernel --neofetch --no-caps --shell --terminal --uptime --user --userat --packages pacman --logo --logofile "$HOME/ascii/anime-2.art" | sed "s# with Radeon Graphics (16) @ #@#" | sed "s#(pacman)#(aura)#"'
+alias cla="$HOME/bash-scripts/utils/capture-with-audio-losless.sh"
 
 alias nn="neofetch"
 
