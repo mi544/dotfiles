@@ -27,6 +27,7 @@ alias ll="ls -l"
 alias la="ls -la"
 alias headn="head -n 15"
 alias tailn="tail -n 15"
+alias tldr="2>/dev/null 1>&2 tldr --update && tldr"
 
 alias list-cursors="find /usr/share/icons ~/.local/share/icons ~/.icons -type d -name 'cursors' | grep -v 'No such file'"
 alias list-themes="find /usr/share/themes /usr/local/share/themes ~/.local/share/themes ~/.themes -type d | grep -v 'No such file'"

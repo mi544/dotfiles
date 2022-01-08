@@ -85,7 +85,7 @@ figlet
 htop
 lolcat
 neofetch
-tldr
+AUR:tealdeer-git
 ```
 
 Games:
