@@ -24,6 +24,7 @@ Run `volta install` with the following arguments
 
 ```
 node@lts
+remark-cli remark-toc remark-preset-lint-consistent remark-preset-lint-recommended
 npm-check-updates serve lerna
 eslint eslint_d prettier
 typescript typescript-language-server vls bash-language-server
@@ -151,6 +152,7 @@ AUR:xwinwrap-git
 
 Apps:
 ```
+emacs fd
 kate
 filelight
 AUR:font-manager-git

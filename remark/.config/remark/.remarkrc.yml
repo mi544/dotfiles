@@ -1,0 +1,10 @@
+settings:
+  bullet": "*"
+plugins":
+  # Check that markdown is consistent.
+  - remark-preset-lint-consistent
+  # Few recommended rules.
+  - remark-preset-lint-recommended
+  # Generate a table of contents in `## Contents`
+  - - remark-toc
+    - heading: contents

@@ -12,7 +12,14 @@ export EDITOR="vim"
 export GEM_HOME="$HOME/gems"
 export GEM_HOME_ALT="$HOME/.local/share/gem/ruby/3.0.0"
 export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$GEM_HOME/bin:$GEM_HOME_ALT/bin:$HOME/.local/bin:$PATH"
+export EMACS_HOME="$HOME/.emacs.d/"
+export PATH=\
+"$VOLTA_HOME/bin:"\
+"$GEM_HOME/bin:"\
+"$GEM_HOME_ALT/bin:"\
+"$EMACS_HOME/bin:"\
+"$HOME/.local/bin:"\
+"$PATH"
 
 export MONITOR="eDP1"
 

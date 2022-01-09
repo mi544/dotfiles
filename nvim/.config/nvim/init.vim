@@ -127,6 +127,11 @@ local prettier = {
   formatStdin = true,
 }
 
+local remark = {
+  formatCommand = "remark --rc-path ~/.config/remarkjs/.remarkrc.yml --no-color --no-config",
+  formatStdin = true,
+}
+
 local eslint = {
   lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
   lintStdin = true,
@@ -139,6 +144,8 @@ local eslint = {
 require'lspconfig'.efm.setup{
   root_dir = require'lspconfig'.util.root_pattern(
     ".git",
+    ".md",
+    ".markdown",
     ".eslintrc",
     ".eslintrc.json",
     ".eslintrc.js",
@@ -151,23 +158,33 @@ require'lspconfig'.efm.setup{
   end,
   init_options = { documentFormatting = true },
   settings = {
-    rootMarkers = {".git/", ".eslintrc.js", ".prettierrc"},
+    rootMarkers = {
+    ".git",
+    ".md",
+    ".markdown",
+    ".eslintrc",
+    ".eslintrc.json",
+    ".eslintrc.js",
+    ".prettierrc",
+    ".prettierrc.js",
+    ".prettierrc.json",
+    },
     languages = {
+      markdown = { remark },
       javascript = { eslint },
       typescript = { eslint },
       vue = { eslint },
       json = { prettier },
       html = { prettier },
-      markdown = { prettier },
     }
   },
   filetypes = {
+    "markdown",
     "javascript",
     "typescript",
     "vue",
     "json",
     "html",
-    "markdown",
   },
 }
 
