@@ -24,7 +24,7 @@ Run `volta install` with the following arguments
 
 ```
 node@lts
-remark-cli remark-toc remark-preset-lint-consistent remark-preset-lint-recommended
+remark-cli remark-lint remark-toc remark-preset-lint-consistent remark-preset-lint-recommended remark-preset-lint-markdown-style-guide
 npm-check-updates serve lerna
 eslint eslint_d prettier
 typescript typescript-language-server vls bash-language-server

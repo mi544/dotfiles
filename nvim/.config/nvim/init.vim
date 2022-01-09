@@ -128,7 +128,7 @@ local prettier = {
 }
 
 local remark = {
-  formatCommand = "remark --rc-path ~/.config/remarkjs/.remarkrc.yml --no-color --no-config",
+  formatCommand = "remark --rc-path $HOME/.config/remark/.remarkrc.yml --no-color --no-config",
   formatStdin = true,
 }
 
