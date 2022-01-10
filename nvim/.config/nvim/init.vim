@@ -127,6 +127,11 @@ local prettier = {
   formatStdin = true,
 }
 
+local phpcsfixer = {
+  formatCommand = ">/dev/null 2>&1 tee $(mkdir -p /tmp/php-cs-fixer/; echo '/tmp/php-cs-fixer/1.php') && >/dev/null 2>&1 PHP_CS_FIXER_FUTURE_MODE=1 php-cs-fixer fix --rules=@PSR2 /tmp/php-cs-fixer/1.php && cat /tmp/php-cs-fixer/1.php && rm /tmp/php-cs-fixer/1.php",
+  formatStdin = true,
+}
+
 local remark = {
   formatCommand = "remark --rc-path $HOME/.config/remark/.remarkrc.yml --no-color --no-config",
   formatStdin = true,
@@ -174,6 +179,7 @@ require'lspconfig'.efm.setup{
       javascript = { eslint },
       typescript = { eslint },
       vue = { eslint },
+      php = { phpcsfixer },
       json = { prettier },
       html = { prettier },
     }
@@ -183,6 +189,7 @@ require'lspconfig'.efm.setup{
     "javascript",
     "typescript",
     "vue",
+    "php",
     "json",
     "html",
   },
