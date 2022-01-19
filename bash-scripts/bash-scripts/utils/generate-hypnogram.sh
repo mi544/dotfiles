@@ -65,7 +65,11 @@ while : ; do
           "$error_code" = 'TOO_FAST' ]]; then
         echo 'Error encountered, waiting 10 seconds...'
         echo "[$error_code]"
-        sleep 10
+
+        wait_time=$((7 + $RANDOM % 21))
+        echo "Waiting $wait_time seconds.."
+        sleep $wait_time
+
         echo 'Retrying'
         continue
     fi
@@ -78,8 +82,9 @@ image_id=$(echo "$hypno_response" | jq '.image_id' | sed 's#"##g')
 echo 'image_id successfully captured'
 echo "[$image_id]"
 
-echo 'Waiting 10 seconds..'
-sleep 10
+wait_time=$((7 + $RANDOM % 21))
+echo "Waiting $wait_time seconds.."
+sleep $wait_time
 
 while : ; do
     output_path="$output_dir/$query_kebab.jpg"
@@ -101,8 +106,8 @@ while : ; do
         --output "$output_path"
 
     if [ $? -ne 0  ]; then
-        echo 'Image not ready yet, waiting 5 seconds..'
-        sleep 5
+        echo "Image not ready yet, waiting 3 seconds.."
+        sleep 3
         continue
     fi
 
