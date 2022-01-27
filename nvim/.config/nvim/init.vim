@@ -72,11 +72,15 @@ Plug 'nvim-treesitter/playground'
 Plug 'mi544/harpoonish.nvim'
 Plug 'mi544/vim-ripgrep'
 
+Plug 'easymotion/vim-easymotion'
+
 " Vue
 " Plug 'posva/vim-vue'
 
 call plug#end()
 " -------------------------------
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1 " turn on case-insencitive feature
 
 set termguicolors
 colorscheme gruvbox
@@ -128,7 +132,7 @@ local prettier = {
 }
 
 local phpcsfixer = {
-  formatCommand = ">/dev/null 2>&1 tee $(mkdir -p /tmp/php-cs-fixer/; echo '/tmp/php-cs-fixer/1.php') && >/dev/null 2>&1 PHP_CS_FIXER_FUTURE_MODE=1 php-cs-fixer fix --using-cache=no --rules=@PSR2 /tmp/php-cs-fixer/1.php && cat /tmp/php-cs-fixer/1.php && rm /tmp/php-cs-fixer/1.php",
+  formatCommand = ">/dev/null 2>&1 tee $(mkdir -p /tmp/php-cs-fixer/; echo '/tmp/php-cs-fixer/1.php') && >/dev/null 2>&1 PHP_CS_FIXER_FUTURE_MODE=1 php-cs-fixer fix --using-cache=no --rules=@PSR12 /tmp/php-cs-fixer/1.php && cat /tmp/php-cs-fixer/1.php && rm /tmp/php-cs-fixer/1.php",
   formatStdin = true,
 }
 
@@ -294,6 +298,9 @@ nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <C-j> :cnext<CR>zzzv
 nnoremap <C-k> :cprev<CR>zzzv
 
+"
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 " ~~~~~~~~~~~~~~~~~~~~~~
 " COPYING-PASTING
 " ~~~~~~~~~~~~~~~~~~~~~~
@@ -310,7 +317,7 @@ nnoremap <leader>Y "+y$
 " Keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
-nnoremap J mzJ`z
+nnoremap <silent> J :mark z<CR>zJ`z
 
 " Undo breakpoints
 inoremap , ,<c-g>u
@@ -343,7 +350,8 @@ nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>vc :lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>vl :lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap <leader>vn :lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <leader>vll :call LspLocationList()<CR>
+"what is it?
+"nnoremap <leader>vll :call LspLocationList()<CR>
 
 nnoremap <leader>ld :lua vim.lsp.diagnostic.set_loclist()<CR>
 inoremap <silent><expr> <C-CR> compe#confirm('<CR>')
@@ -388,3 +396,9 @@ nnoremap <leader>cdp :cd ~/projects/remax/peak<CR>
 nnoremap <leader>tt :! yarn test:unit %:p<CR>
 nnoremap <leader>tu :! yarn test:unit -u %:p<CR>
 
+
+" EasyMotion
+map mm <Plug>(easymotion-bd-w)
+nmap <left> <Plug>(easymotion-bd-f)
+nmap <right> <Plug>(easymotion-bd-f2)
+map <up> <Plug>(easymotion-bd-jk)
