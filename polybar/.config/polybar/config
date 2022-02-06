@@ -25,29 +25,25 @@ monitor-exact = true
 override-redirect = true
 bottom = false
 fixed-center = true
-width = 80%
-height = 35
-offset-x = 10%
-offset-y = 3
+width = 45%
+height = 32.5
+offset-x = 27.5%
+offset-y = 0
 background = ${colors.background}
 foreground = ${colors.foreground}
-radius = 18
-; Under-/overline pixel size and argb color
-; Individual values can be defined using:
-;   {overline,underline}-size
-;   {overline,underline}-color
+radius-bottom = 25
 line-size = 0
 line-color = #f00
 border-size =
 border-color =
-padding-left = 1
+padding-left = 2
 padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
-font-0 = Fira Sans Book:pixelsize=16;
+font-0 = Nunito Sans Semibold:pixelsize=16;3.5
 modules-left = bspwm
 modules-center =
-modules-right = weather date cpu-temp pulseaudio sep sep battery sep
+modules-right = cl-1 date cl-2 pulseaudio sep sep battery
 separator =
 ; Opacity value between 0.0 and 1.0 used on fade in/out
 dim-value = 1.0
@@ -110,14 +106,6 @@ format-background = ${colors.background-bar}
 format-foreground = ${colors.foreground-inversed}
 format-padding = 3
 
-[module/battery]
-type = internal/battery
-full-at = 99
-; $ ls -1 /sys/class/power_supply/
-battery = BAT0
-adapter = ADP1
-poll-interval = 5
-
 [module/pulseaudio]
 type = internal/pulseaudio
 use-ui-max = true
@@ -139,30 +127,18 @@ content = "·"
 type = custom/text
 content = " "
 
-[module/cpu-temp]
-type = custom/script
-format-background = ${colors.background-bar-alt}
-format-foreground = ${colors.text}
-format-padding = 2
-interval = 2
-exec = $HOME/bash-scripts/polybar/cpu-temp.sh
+[module/cl-1]
+type = custom/text
+content-background = ${colors.background-bar-alt}
+content-foreground = ${colors.text}
+content-padding = 0
+content = "       "
 
-[module/weather]
-type = custom/script
-format = "<label>"
-format-background = ${colors.background-bar-alt}
-format-foreground = ${colors.text}
-format-padding = 2
-interval = 300
-exec = $HOME/bash-scripts/polybar/weather.sh
-
-[module/screen-temp]
-type = custom/script
-format-background = ${colors.background-bar}
-format-foreground = ${colors.foreground-inversed}
-format-padding = 3
-tail = true
-interval = 0
-exec = $HOME/bash-scripts/polybar/screen-temp.sh
+[module/cl-2]
+type = custom/text
+content-background = ${colors.background-bar-alt}
+content-foreground = ${colors.text}
+content-padding = 0
+content = "         "
 
 ; vim:ft=dosini
