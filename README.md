@@ -23,7 +23,7 @@ Node versioning and global npm package management is handled through
 Run `volta install` with the following arguments
 
 ```
-node@lts
+node@lts yarn
 remark-cli remark-lint remark-toc remark-preset-lint-consistent remark-preset-lint-recommended remark-preset-lint-markdown-style-guide
 npm-check-updates serve lerna
 eslint eslint_d prettier
@@ -68,7 +68,9 @@ Uncomment lib32 in pacman.conf
 
 ```
 --aura---
-xorg-server xorg-xinit xorg-apps xclip xdo xdotool
+AUR:neovim-git neovim-plug-git efm-langserver-git
+pacman-contrib
+xorg-server xorg-xinit xorg-apps xclip xdo xdotool wmctrl
 xf86-video-amdgpu mesa lib32-mesa lib32-vulkan-radeon vulkan-radeon
 bspwm sxhkd rofi nitrogen unclutter
 AUR:polybar picom-git
@@ -76,7 +78,7 @@ AUR:polybar picom-git
 
 Terminal:
 ```
-alacritty
+AUR:alacritty-git
 exa
 asciiquarium
 cmatrix
@@ -108,8 +110,10 @@ AUR:hmcl-bin
 Utils:
 ```
 libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip
+dosbox
 AUR:libspeedhack-git
 libqalculate
+zbar
 archiso
 asciinema
 fcron
@@ -152,7 +156,10 @@ AUR:xwinwrap-git
 
 Apps:
 ```
+imagemagick
 emacs fd
+AUR:audacium-git
+ksnip
 kate
 filelight
 AUR:font-manager-git
@@ -173,7 +180,7 @@ telegram-desktop
 vlc
 thunar thunar-archive-plugin thunar-volman gvfs raw-thumbnailer ffmpegthumbnailer tumbler thunar-media-tags-plugin
 dbeaver
-dino
+AUR:dino-git
 irssi
 libreoffice-fresh
 ```
@@ -182,6 +189,7 @@ Fonts:
 ```
 gnu-free-fonts
 otf-ipafont ttf-hanazono
+AUR:ttf-dejavu-ib ttf-nunito ttf-nunito-sans
 ```
 
 Potentially(?):

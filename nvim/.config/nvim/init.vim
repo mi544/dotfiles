@@ -399,6 +399,4 @@ nnoremap <leader>tu :! yarn test:unit -u %:p<CR>
 
 " EasyMotion
 map mm <Plug>(easymotion-bd-w)
-nmap <left> <Plug>(easymotion-bd-f)
-nmap <right> <Plug>(easymotion-bd-f2)
-map <up> <Plug>(easymotion-bd-jk)
+map ml <Plug>(easymotion-bd-jk)
