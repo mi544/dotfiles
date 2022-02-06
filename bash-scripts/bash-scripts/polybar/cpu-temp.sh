@@ -8,4 +8,6 @@ cpu_temp=$(
     sed "s/\.[[:digit:]].*//"
 )
 
-echo "CPU - $cpu_temp°C"
+# or
+echo "$(sensors 'k10temp-pci-00c3' |
+    rg --only-matching '(\+|-)\d{1,3}\.\d..')"

@@ -4,8 +4,8 @@ url="$1"
 
 id=$(echo $1 | rg -o 'watch\?v=(.*?)(&|$)' -r '$1')
 
+       #--write-comments \
 yt-dlp --write-info-json \
-       --write-comments \
        --write-thumbnail \
        --embed-thumbnail \
        --merge-output-format mkv \
@@ -19,7 +19,7 @@ yt-dlp --write-info-json \
        "$url"
 
 IFS=$'\n'
-artifacts=$(ls -1 . | rg '\['"$id"'\]' | rg -v 'mp4|mkv|flv|webm|mov|avi|mp3|mka|m4a|ogg|opus')
+artifacts=$(ls -1 . | rg '\['"$id"'\]' | rg -v '\.(mp4|mkv|flv|webm|mov|avi|mp3|mka|m4a|ogg|opus)$')
 mkdir -p ./.artifacts
 for file in $(echo "$artifacts"); do 
     mv "$file" ./.artifacts
