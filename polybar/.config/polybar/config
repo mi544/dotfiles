@@ -40,7 +40,7 @@ padding-left = 2
 padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
-font-0 = Nunito Sans Semibold:pixelsize=16;3.5
+font-0 = Nunito Sans:pixelsize=16;3.5
 modules-left = bspwm
 modules-center =
 modules-right = cl-1 date cl-2 pulseaudio sep sep battery

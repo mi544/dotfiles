@@ -1,7 +1,7 @@
 configuration {
 /*  modi: "window,run,ssh";*/
-  font: "mono 15";
-/*  location: 0;*/
+  font: "Nunito Light 15";
+  location: 5;
 /*  yoffset: 0;*/
 /*  xoffset: 0;*/
 /*  fixed-num-lines: true;*/
@@ -22,18 +22,18 @@ configuration {
 /*  drun-url-launcher: "xdg-open";*/
   disable-history: false;
 /*  ignored-prefixes: "";*/
-/*  sort: false;*/
-/*  sorting-method: "normal";*/
-/*  case-sensitive: false;*/
+  sort: true;
+  sorting-method: "fzf";
+  case-sensitive: false;
 /*  cycle: true;*/
 /*  sidebar-mode: false;*/
 /*  hover-select: false;*/
-/*  eh: 1;*/
+  eh: 1;
 /*  auto-select: false;*/
 /*  parse-hosts: false;*/
 /*  parse-known-hosts: true;*/
 /*  combi-modi: "window,run";*/
-/*  matching: "normal";*/
+  matching: "fuzzy";
 /*  tokenize: true;*/
 /*  m: "-5";*/
 /*  filter: ;*/
@@ -144,4 +144,5 @@ configuration {
       sorting-method: "name";
   }
 }
+
 @theme "Adapta-Nokto"

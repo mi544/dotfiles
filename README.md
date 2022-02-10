@@ -71,9 +71,9 @@ Uncomment lib32 in pacman.conf
 AUR:neovim-git neovim-plug-git efm-langserver-git
 pacman-contrib
 xorg-server xorg-xinit xorg-apps xclip xdo xdotool wmctrl
-xf86-video-amdgpu mesa lib32-mesa lib32-vulkan-radeon vulkan-radeon
-bspwm sxhkd rofi nitrogen unclutter
-AUR:polybar picom-git
+xf86-video-amdgpu mesa lib32-mesa vulkan-icd-loader lib32-vulkan-icd-loader vulkan-radeon lib32-vulkan-radeon
+bspwm sxhkd nitrogen unclutter
+AUR:polybar picom-git rofi-git
 ```
 
 Terminal:
@@ -151,7 +151,6 @@ gamemode
 jq tidy
 AUR:pup-git fq
 maria-db
-AUR:xwinwrap-git
 ```
 
 Apps:

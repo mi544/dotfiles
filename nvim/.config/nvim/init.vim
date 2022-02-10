@@ -310,14 +310,15 @@ nnoremap <leader>y "+y
 " expected behavior for Y
 nnoremap Y y$
 " expected behavior for )
-nnoremap ) d0
-nnoremap ( d0i
+nnoremap ) d0i
+nnoremap ( d0
+nnoremap & d$
 nnoremap <leader>Y "+y$
 
 " Keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
-nnoremap <silent> J :mark z<CR>zJ`z
+nnoremap J mzJ`z
 
 " Undo breakpoints
 inoremap , ,<c-g>u
@@ -360,8 +361,8 @@ inoremap <silent><expr> <C-CR> compe#confirm('<CR>')
 " GIT FUGITIVE
 " ~~~~~~~~~~~~~~~~~~~~~~
 nnoremap <leader>gs :G<CR>
-nnoremap <leader>gf :diffget //2<CR>
-nnoremap <leader>gh :diffget //3<CR>
+nnoremap <leader>gh :diffget //2<CR>
+nnoremap <leader>gl :diffget //3<CR>
 nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>gp :Git push origin 
 nnoremap <leader>gph :Git push origin HEAD<CR>
@@ -389,8 +390,6 @@ nnoremap <silent> <leader>ds :lua require("harpoon.mark").add_file(nil, 4)<CR>
 " ~~~~~~~~~~~~~~~~~~~~~~
 " PROJECT SPECIFIC REMAPS
 " ~~~~~~~~~~~~~~~~~~~~~~
-" Renaming tags
-nnoremap <leader>tgr :lua require('mi.utils').tagRenamePrompt()<CR>
 " yarn testing
 nnoremap <leader>cdp :cd ~/projects/remax/peak<CR>
 nnoremap <leader>tt :! yarn test:unit %:p<CR>
