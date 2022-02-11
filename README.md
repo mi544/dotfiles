@@ -109,6 +109,8 @@ AUR:hmcl-bin
 
 Utils:
 ```
+wine-staging wine-gecko wine-mono lib32-libpulse lib32-openal
+AUR:winetricks-git
 libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip
 dosbox
 AUR:libspeedhack-git
@@ -198,7 +200,7 @@ nautilus
 terminus-font
 ```
 
-TBD: alsa, pulse (with mixers), bluez, networkmanager, wine,
+TBD: alsa, pulse (with mixers), bluez, networkmanager
 intel video (installation), japanese fonts
 
 steam settings preserve
