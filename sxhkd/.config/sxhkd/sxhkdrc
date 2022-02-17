@@ -116,11 +116,15 @@ super + c
 
 # Screenshot
 Print
-  gnome-screenshot
+  scrot --silent --file "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%k-%M-%S.png"
+
+# Screenshot (rect)
+ctrl + Print
+  scrot --silent --select --file "$HOME/Share/%s.png"
 
 # Screenshot (rect)
 shift + Print
-  ksnip --rectarea
+  scrot --silent --focused --file "$HOME/Share/%s.png"
 
 # random wallpaper -> next
 super + i

@@ -112,6 +112,9 @@ Utils:
 wine-staging wine-gecko wine-mono lib32-libpulse lib32-openal
 AUR:winetricks-git
 libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip
+scrot
+optipng
+AUR:mangohud-git
 dosbox
 AUR:libspeedhack-git
 libqalculate
@@ -127,7 +130,6 @@ AUR:aria2-fast
 lshw
 ffmpeg
 xdg-user-dirs xdg-utils perl-file-mimeinfo
-gnome-screenshot
 go
 imagemagick
 iputils
@@ -160,7 +162,6 @@ Apps:
 imagemagick
 emacs fd
 AUR:audacium-git
-ksnip
 kate
 filelight
 AUR:font-manager-git
