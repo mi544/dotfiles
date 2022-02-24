@@ -2,12 +2,14 @@
 
 url="$1"
 
-playlist="$(basename $(pwd))"
-yt-dlp --print '%(title)s^%(uploader)s^%(webpage_url)s' "$url" | tee -a "../$playlist.list"
+#playlist="$(basename $(pwd))"
+#yt-dlp --print '%(title)s^%(uploader)s^%(webpage_url)s' "$url" | tee -a "../$playlist.list"
 
 id=$(echo $1 | rg -o 'watch\?v=(.*?)(&|$)' -r '$1')
 
        #--write-comments \
+       #-o '%(title)s--%(uploader)s--[%(id)s].%(ext)s' \
+       #--cookies ~/cookies-www-youtube-com.txt \
 yt-dlp --write-info-json \
        --write-thumbnail \
        --embed-thumbnail \

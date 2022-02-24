@@ -14,11 +14,13 @@ export GEM_HOME="$HOME/gems"
 export GEM_HOME_ALT="$HOME/.local/share/gem/ruby/3.0.0"
 export VOLTA_HOME="$HOME/.volta"
 export EMACS_HOME="$HOME/.emacs.d/"
+export COMPOSER_HOME="$HOME/.config/composer/vendor"
 export PATH=\
 "$VOLTA_HOME/bin:"\
 "$GEM_HOME/bin:"\
 "$GEM_HOME_ALT/bin:"\
 "$EMACS_HOME/bin:"\
+"$COMPOSER_HOME/bin:"\
 "$HOME/.local/bin:"\
 "$PATH"
 

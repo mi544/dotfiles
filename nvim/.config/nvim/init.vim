@@ -305,14 +305,14 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " COPYING-PASTING
 " ~~~~~~~~~~~~~~~~~~~~~~
 vnoremap <leader>p "_dP
+vnoremap <leader>d "_d
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 " expected behavior for Y
 nnoremap Y y$
 " expected behavior for )
-nnoremap ) d0i
-nnoremap ( d0
-nnoremap & d$
+nnoremap & d0
+nnoremap ( d$
 nnoremap <leader>Y "+y$
 
 " Keeping it centered
@@ -364,13 +364,11 @@ nnoremap <leader>gs :G<CR>
 nnoremap <leader>gh :diffget //2<CR>
 nnoremap <leader>gl :diffget //3<CR>
 nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>gp :Git push origin 
 nnoremap <leader>gph :Git push origin HEAD<CR>
 nnoremap <leader>gpp :Git pull<CR>
-nnoremap <leader>gppb :Git pull origin 
 nnoremap <leader>gc :Git commit<CR>
 nnoremap <leader>gcc :Git checkout 
-nnoremap <leader>gccb :Git checkout -b 
+nnoremap <leader>gcb :Git checkout -b 
 
 " ~~~~~~~~~~~~~~~~~~~~~~
 " HARPOON

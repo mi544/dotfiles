@@ -14,10 +14,16 @@ wp_current=$(sed '2q;d' "$wp_list_path")
 line_num=$(( wp_current + 2))
 
 if [ "$direction" = 'prev' ]; then 
-    if [[ $wp_current -le 1 ]]; then exit 0; fi
+    if [[ $wp_current -le 1 ]]; then
+        nitrogen --set-zoom-fill --restore
+        exit 0
+    fi
     line_num_next=$(( wp_current - 1 ))
 elif [ "$direction" = 'next' ]; then
-    if [[ $wp_current -ge $wp_total ]]; then exit 0; fi
+    if [[ $wp_current -ge $wp_total ]]; then
+        nitrogen --set-zoom-fill --restore
+        exit 0
+    fi
     line_num_next=$(( wp_current + 1 ))
 else
     line_num_next=$wp_current

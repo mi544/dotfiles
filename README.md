@@ -111,7 +111,7 @@ Utils:
 ```
 wine-staging wine-gecko wine-mono lib32-libpulse lib32-openal
 AUR:winetricks-git
-libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip
+libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip libguestfs
 scrot
 optipng
 AUR:mangohud-git
@@ -152,7 +152,7 @@ screenkey
 stow
 xdg-user-dirs (and the wiki - th esetup part as well!)
 gamemode
-jq tidy
+jq tidy yq
 AUR:pup-git fq
 maria-db
 ```
@@ -161,6 +161,7 @@ Apps:
 ```
 imagemagick
 emacs fd
+AUR:openrgb-bin
 AUR:audacium-git
 kate
 filelight
@@ -220,6 +221,9 @@ xdg-mime default org.pwmt.zathura.desktop application/pdf
 java
 
 
+```
+composer global require psy/psysh:@stable
+```
 
 nmap dnsutils whois stunnel hping openbsd-netcat
 pip install python-lsp-server
