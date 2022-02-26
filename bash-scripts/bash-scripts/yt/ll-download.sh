@@ -2,14 +2,8 @@
 
 url="$1"
 
-#playlist="$(basename $(pwd))"
-#yt-dlp --print '%(title)s^%(uploader)s^%(webpage_url)s' "$url" | tee -a "../$playlist.list"
+id=$(echo $1 | rg -o '(/|viewkey=)(ph\w{13})( |\?|&|$)' -r '$2')
 
-id=$(echo $1 | rg -o '(/|v=)(\w{11})( |\?|&|$)' -r '$2')
-
-       #--write-comments \
-       #-o '%(title)s--%(uploader)s--[%(id)s].%(ext)s' \
-       #--cookies ~/cookies-www-youtube-com.txt \
 yt-dlp --write-info-json \
        --write-thumbnail \
        --embed-thumbnail \
@@ -20,7 +14,7 @@ yt-dlp --write-info-json \
        --embed-chapters \
        --embed-info-json \
        --xattrs \
-       -o '%(uploader)s--%(title)s--[%(id)s].%(ext)s' \
+       -o '%(title)s--%(uploader)s--[%(id)s].%(ext)s' \
        --retries 500 \
        --fragment-retries 500 \
        --file-access-retries 500 \
@@ -35,4 +29,3 @@ for file in $(echo "$artifacts"); do
 done
 unset IFS
 sync
-
