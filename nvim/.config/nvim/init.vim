@@ -325,6 +325,7 @@ inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
+inoremap \| \|<c-g>u
 
 " Jumplist records relative moves (jk)
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
