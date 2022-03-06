@@ -21,8 +21,8 @@ while :; do
     break
 done
 
-# taking a screenshot of a rectangle selection
-scrot --silent --select --file "$screenshot_path"
+# taking a screenshot of the focused window
+scrot --silent --focused --file "$screenshot_path"
 # copying it into clipboard
 xclip -t image/png -selection clipboard "$screenshot_path" 
 # copying it into 'Keepy' for archiving purposes;

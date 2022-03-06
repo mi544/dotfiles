@@ -2,9 +2,9 @@
 ### BSPWM HOTKEYS ###
 #####################
 
-# quit/restart bspwm
-alt + ctrl + {q,r}
-	bspc {quit,wm -r}
+# restart bspwm
+alt + ctrl + r
+	bspc wm -r
 
 # close/kill node
 alt + {_,shift + }q
@@ -124,7 +124,7 @@ ctrl + Print
 
 # screenshot (window)
 shift + Print
-  scrot --silent --focused --file "$HOME/Share/%s.png"
+  "$HOME/bash-scripts/screenshot/screenshot-win.sh"
 
 # random wallpaper -> next
 super + i
