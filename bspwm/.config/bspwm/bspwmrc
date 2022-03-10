@@ -75,6 +75,8 @@ bspc rule -a 'Slack' desktop=^1
 bspc rule -a 'Thunar' state=floating
 bspc rule -a 'alacritty -h' state=floating
 bspc rule -a 'gammy' desktop=^7
+bspc rule -a 'Chromium' state=floating
+bspc rule -a 'Cypress' state=floating
 #bspc rule -a 'mpv' state=fullscreen
 bspc rule -a 'zoom' state=floating
 
