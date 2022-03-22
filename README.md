@@ -60,6 +60,9 @@ systemctl enable NetworkManager
 systemctl enable bluetooth
 systemctl enable fcron
 systemctl enable ntpd
+systemctl enable cups
+systemctl disable systemd-resolved
+systemctl enable avahi-daemon
 xdg-mime default librewolf.desktop x-scheme-handler/http
 !!!
 
@@ -109,6 +112,8 @@ AUR:hmcl-bin
 
 Utils:
 ```
+cups cups-pdf avahi nss-mdns gutenprint foomatic-db-gutenprint-ppds
+sane sane-airscan
 wine-staging wine-gecko wine-mono lib32-libpulse lib32-openal
 AUR:winetricks-git
 libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip libguestfs
@@ -164,6 +169,7 @@ emacs fd
 AUR:openrgb-bin
 AUR:audacium-git
 kate
+AUR:eaglemode
 filelight
 AUR:font-manager-git
 AUR:librewolf-bin

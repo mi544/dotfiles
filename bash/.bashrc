@@ -31,6 +31,8 @@ export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 export CACA_DRIVER="ncurses"
+# find with `scanimage -L`
+export SANE_DEFAULT_DEVICE='airscan:e0:Canon TS6400 series'
 
 alias ls="exa --color=always --group-directories-first"
 alias ll="ls -l"
@@ -48,12 +50,15 @@ alias pvterm="$HOME/bash-scripts/utils/terminal-play-video.sh $1"
 alias vdl="yt-dlp --downloader aria2c --downloader-args 'aria2c:-c -j 8 -s 8 -x 8 -k 1M'"
 alias ytmpv="mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-raw-options=cookies=~/cookies.txt --msg-level=all=no,ytdl_hook=trace"
 alias ytmpva="mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format=bestaudio --msg-level=all=no,ytdl_hook=trace"
-alias d="aria2c -c -j 8 -s 8 -x 8 -k 1M"
-alias df="aria2c -c -s 499 -x 499 -k 1M -j 1"
+alias dfile="aria2c -c -j 8 -s 8 -x 8 -k 1M"
+alias dfilef="aria2c -c -s 499 -x 499 -k 1M -j 1"
 alias c="$HOME/bash-scripts/utils/capture-no-audio.sh"
 alias cl="$HOME/bash-scripts/utils/capture-no-audio-losless.sh"
 alias ca="$HOME/bash-scripts/utils/capture-with-audio.sh"
 alias cla="$HOME/bash-scripts/utils/capture-with-audio-losless.sh"
+
+alias scan="$HOME/bash-scripts/printer/scan.sh"
+alias scanmax="$HOME/bash-scripts/printer/scan-max.sh"
 
 alias nn="neofetch"
 
