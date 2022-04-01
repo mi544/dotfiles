@@ -116,7 +116,7 @@ super + c
 
 # screenshot
 Print
-  scrot --silent --file "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%k-%M-%S.png"
+  "$HOME/bash-scripts/screenshot/screenshot-full.sh"
 
 # screenshot (rect)
 ctrl + Print

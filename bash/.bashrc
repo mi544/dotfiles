@@ -59,6 +59,7 @@ alias cla="$HOME/bash-scripts/utils/capture-with-audio-losless.sh"
 
 alias scan="$HOME/bash-scripts/printer/scan.sh"
 alias scanmax="$HOME/bash-scripts/printer/scan-max.sh"
+alias yarn-versions="$HOME/bash-scripts/yarn/yarn-versions.sh"
 
 alias nn="neofetch"
 

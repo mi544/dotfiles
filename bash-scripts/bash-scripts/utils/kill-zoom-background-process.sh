@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # this script unloads processes (zoom) that are running in the background
+# at least one zoom window must be present if you need zoom running
 
 # if zoom has windows open, exit
 if ! [[ -z $(wmctrl -l | rg -i zoom) ]]; then
