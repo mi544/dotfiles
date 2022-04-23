@@ -91,15 +91,15 @@ alt + p
   rofi-pass
 
 # translate
-super + s
+super + l
   $HOME/bash-scripts/utils/translate.sh en-ru &
 
 # translate all
-super + alt + s
+super + alt + l
   $HOME/bash-scripts/utils/translate.sh en-ru all &
 
 # translate vim
-super + shift + s
+super + shift + l
   $HOME/bash-scripts/utils/translate.sh en-ru vim &
 
 # get links in the browser
@@ -115,15 +115,15 @@ super + c
 ###################
 
 # screenshot
-Print
+super + s
   "$HOME/bash-scripts/screenshot/screenshot-full.sh"
 
 # screenshot (rect)
-ctrl + Print
+shift + super + s
   "$HOME/bash-scripts/screenshot/screenshot-rect.sh"
 
 # screenshot (window)
-shift + Print
+ctrl + super + s
   "$HOME/bash-scripts/screenshot/screenshot-win.sh"
 
 # random wallpaper -> next
@@ -175,14 +175,6 @@ super + shift + q
 
 super + ctrl + shift + q
   xbacklight -set 1
-
-# Increase screen temperature 
-#super + s
-  #$HOME/bash-scripts/utils/increase-screen-temperature.sh 50
-
-# Decrease screen temperature
-#super + x
-  #$HOME/bash-scripts/utils/decrease-screen-temperature.sh 50
 
 #####################
 ### APP SHORTCUTS ###

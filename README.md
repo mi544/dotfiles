@@ -118,12 +118,12 @@ otf-ipafont ttf-hanazono
 aur/ttf-dejavu-ib aur/ttf-nunito aur/ttf-nunito-sans
 ```
 
-### Games
-#### Native
+### Apps
+#### Native Games
 ```
 aisleriot gnuchess knights gnome-chess aur/spacecadetpinball-git
 ```
-#### Clients
+#### Game Clients
 ```
 steam aur/protonup-git
 aur/airshipper
@@ -132,9 +132,8 @@ aur/hmcl-bin
 #### Emulators
 ```
 ppsspp mgba-qt aur/rpcs3-bin aur/yuzu-mainline-bin
+dosbox
 ```
-
-### Apps
 #### Photo
 ```
 imagemagick
@@ -148,7 +147,7 @@ vlc
 ```
 #### Audio
 ```
-aur/audacium-git aur/reaper-bin
+aur/tenacity-git aur/reaper-bin
 aur/deadbeef
 ```
 #### Communication
@@ -174,6 +173,7 @@ libreoffice-fresh
 
 #### Other
 ```
+blender aur/opencl-amd
 aur/insomnia-bin
 aur/rustdesk-bin
 aegisub
@@ -198,10 +198,12 @@ wine-staging wine-gecko wine-mono lib32-libpulse lib32-openal
 aur/winetricks-git
 libvirt qemu iptables-nft dnsmasq bridge-utils virt-manager python python-pip libguestfs
 scrot
+gendesk
+wiggle
 htop
+zip
 optipng
 aur/mangohud-git
-dosbox
 aur/libspeedhack-git
 libqalculate
 zbar
