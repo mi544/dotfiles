@@ -11,7 +11,7 @@ id=$(echo $1 | rg -o '(/|v=)([\w-]{11})( |\?|&|$)' -r '$2')
        #-o '%(title)s--%(uploader)s--[%(id)s].%(ext)s' \
        #--cookies "$HOME/cookies.txt" \
 yt-dlp --write-info-json \
-       --cookies "$HOME/cookies.txt" \
+       --cookies "$HOME/.config/cookies/youtube.txt" \
        --write-thumbnail \
        --embed-thumbnail \
        --merge-output-format mkv \

@@ -62,5 +62,6 @@ alias scanmax="$HOME/bash-scripts/printer/scan-max.sh"
 alias yarn-v="$HOME/bash-scripts/yarn/yarn-versions.sh"
 
 alias nn="neofetch"
+alias vd="vidir"
 
 PS1='[\u@\h \W]\$ '

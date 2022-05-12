@@ -7,7 +7,7 @@ xdotool_delay=8
 
 ## Programs to be used
 # Editor
-EDITOR='vim'
+EDITOR='nvim'
 # Browser
 BROWSER='xdg-open'
 

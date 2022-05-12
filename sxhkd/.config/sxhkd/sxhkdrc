@@ -91,15 +91,15 @@ alt + p
   rofi-pass
 
 # translate
-super + l
+super + h
   $HOME/bash-scripts/utils/translate.sh en-ru &
 
 # translate all
-super + alt + l
+alt + super + h
   $HOME/bash-scripts/utils/translate.sh en-ru all &
 
 # translate vim
-super + shift + l
+shift + super + h
   $HOME/bash-scripts/utils/translate.sh en-ru vim &
 
 # get links in the browser
@@ -119,11 +119,11 @@ super + s
   "$HOME/bash-scripts/screenshot/screenshot-full.sh"
 
 # screenshot (rect)
-shift + super + s
+ctrl + super + s
   "$HOME/bash-scripts/screenshot/screenshot-rect.sh"
 
 # screenshot (window)
-ctrl + super + s
+shift + super + s
   "$HOME/bash-scripts/screenshot/screenshot-win.sh"
 
 # random wallpaper -> next

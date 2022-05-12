@@ -32,14 +32,10 @@ Node versioning and global npm package management is handled through
 - Install `aur/volta-bin`
 - Run `volta install` with the following arguments:
 
-```bash
-volta install node@lts yarn remark-cli remark-lint remark-toc remark-preset-lint-consistent remark-preset-lint-recommended remark-preset-lint-markdown-style-guide npm-check-updates serve lerna @nestjs/cli eslint eslint_d prettier typescript typescript-language-server vls bash-language-server express-generator
-```
-
 ```
 node@lts yarn
 remark-cli remark-lint remark-toc remark-preset-lint-consistent remark-preset-lint-recommended remark-preset-lint-markdown-style-guide
-npm-check-updates serve lerna @nestjs/cli
+npm-check-updates serve lerna @nestjs/cli @vue/cli
 eslint eslint_d prettier
 typescript typescript-language-server vls bash-language-server
 express-generator
@@ -122,10 +118,10 @@ aur/ttf-dejavu-ib aur/ttf-nunito aur/ttf-nunito-sans
 #### Native Games
 ```
 aisleriot gnuchess knights gnome-chess aur/spacecadetpinball-git
+0ad 0ad-data
 ```
 #### Game Clients
 ```
-steam aur/protonup-git
 aur/airshipper
 aur/hmcl-bin
 ```
@@ -185,6 +181,8 @@ dbeaver
 ```
 neofetch
 exa
+qrencode
+nnn aur/vidir
 asciinema
 cool-retro-term
 cmatrix figlet lolcat asciiquarium
