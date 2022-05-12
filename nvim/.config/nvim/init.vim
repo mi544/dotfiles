@@ -1,5 +1,4 @@
 syntax on
-" .rafi syntax highlighting
 au BufNewFile,BufRead /*.rasi setf css
 
 set scrolloff=8
@@ -36,12 +35,8 @@ set shortmess+=c
 
 " don't change working directory when browsing in netrw
 let g:netrw_keepdir = 1
-" change default copy command to allow recursive copying
-let g:netrw_localcopydircmd = 'cp -r'
-let g:netrw_localmkdir = 'mkdir -p'
 
-" Vue `-` symbol doesn't break highlighting
-" set iskeyword+=-
+let mapleader = " "
 
 " -------------------------------
 call plug#begin('~/.vim/plugged')
@@ -74,9 +69,6 @@ Plug 'mi544/vim-ripgrep'
 
 Plug 'easymotion/vim-easymotion'
 
-" Vue
-" Plug 'posva/vim-vue'
-
 call plug#end()
 " -------------------------------
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -90,18 +82,23 @@ hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 set completeopt=menuone,noselect
 
 lua << EOF
-require("harpoon").setup({
+local harpoon = require('harpoon')
+local compe = require('compe')
+local lsp = require('lspconfig')
+local util = lsp.util
+
+-- harpoon --
+harpoon.setup{
   global_settings = {
     save_on_toggle = false,
     save_on_change = true,
     enter_on_sendcmd = false,
-    excluded_filetypes = { "harpoon" }
+    excluded_filetypes = { 'harpoon' }
   },
-})
-EOF
+}
 
-lua << EOF
-require'compe'.setup({
+-- compe --
+compe.setup{
   enabled = true;
   autocomplete = true;
   debug = false;
@@ -121,11 +118,9 @@ require'compe'.setup({
     nvim_lsp = true;
     nvim_lua = true;
   };
-})
-EOF
+}
 
-
-lua << EOF
+-- efm --
 local prettier = {
   formatCommand = "prettier --stdin-filepath ${INPUT}",
   formatStdin = true,
@@ -150,93 +145,102 @@ local eslint = {
   formatStdin = true,
 }
 
-require'lspconfig'.efm.setup{
-  root_dir = require'lspconfig'.util.root_pattern(
-    ".git",
-    ".md",
-    ".markdown",
-    ".eslintrc",
-    ".eslintrc.json",
-    ".eslintrc.js",
-    ".prettierrc",
-    ".prettierrc.js",
-    ".prettierrc.json"
-    ),
-  on_attach = function(client)
-    client.resolved_capabilities.goto_definition = false
-  end,
+lsp['efm'].setup{
+  root_dir = util.root_pattern(
+    '.prettierrc',
+    '.prettierrc.js',
+    '.prettierrc.json',
+    '.eslintrc',
+    '.eslintrc.js',
+    '.eslintrc.json',
+    'package.json',
+    '.git'
+  ),
   init_options = { documentFormatting = true },
   settings = {
     rootMarkers = {
-    ".git",
-    ".md",
-    ".markdown",
-    ".eslintrc",
-    ".eslintrc.json",
-    ".eslintrc.js",
-    ".prettierrc",
-    ".prettierrc.js",
-    ".prettierrc.json",
+      '.prettierrc',
+      '.prettierrc.js',
+      '.prettierrc.json',
+      '.eslintrc',
+      '.eslintrc.js',
+      '.eslintrc.json',
+      'package.json',
+      '.git',
     },
     languages = {
       markdown = { remark },
-      javascript = { eslint },
+      json = { prettier },
+      javascript = { prettier },
       typescript = { eslint },
       vue = { eslint },
       php = { phpcsfixer },
-      json = { prettier },
       html = { prettier },
     }
   },
   filetypes = {
-    "markdown",
-    "javascript",
-    "typescript",
-    "vue",
-    "php",
-    "json",
-    "html",
+    'markdown',
+    'json',
+    'javascript',
+    'typescript',
+    'vue',
+    'php',
+    'html',
   },
 }
 
--- require'lspconfig'.clangd.setup{}
-
-require'lspconfig'.bashls.setup{}
-
--- require'lspconfig'.gopls.setup{
---   root_dir = require'lspconfig'.util.root_pattern("go.mod", ".git"),
---   cmd = {"gopls", "serve"}
--- }
-
-require'lspconfig'.phpactor.setup{}
-
-require'lspconfig'.pylsp.setup{}
-
-require'lspconfig'.rls.setup{
-  root_dir = require'lspconfig'.util.root_pattern("Cargo.toml", "rust-project.json")
-}
-
-require'lspconfig'.tsserver.setup{
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
+lsp['tsserver'].setup{
+  root_dir = util.root_pattern(
+    'package.json',
+    '.git'
+  ),
+  register_server = function(client)
+    client.server_capabilities.document_formatting = false
   end,
 }
 
-require'lspconfig'.vuels.setup{
-  root_dir = require'lspconfig'.util.root_pattern(".git", ".eslintrc.js", ".prettierrc"),
+-- lsp.clangd.setup{}
+
+lsp.bashls.setup{}
+
+-- lsp.gopls.setup{
+--   root_dir = util.root_pattern('go.mod', '.git'),
+--   cmd = {'gopls', 'serve'}
+-- }
+
+lsp.phpactor.setup{}
+
+lsp.pylsp.setup{}
+
+lsp.rls.setup{
+  root_dir = util.root_pattern('Cargo.toml', 'rust-project.json')
+}
+
+lsp['vuels'].setup{
+  root_dir = util.root_pattern(
+    '.prettierrc',
+    '.prettierrc.js',
+    '.prettierrc.json',
+    '.eslintrc',
+    '.eslintrc.js',
+    '.eslintrc.json',
+    'package.json',
+    'vue.config.js',
+    '.git'
+  ),
   init_options = {
     config = {
       vetur = {
         completion = {
-          tagCasing = "pascal",
+          tagCasing = 'pascal',
           useScaffoldSnippets = true, 
         },
         format = {
           defaultFormatter = {
-            html = "none",
-            css = "none", 
-            js = "none",
-            sass = "none",
+            html = 'none',
+            css = 'none', 
+            js = 'none',
+            sass = 'none',
           },
           options = {
             useTabs = false,
@@ -244,19 +248,14 @@ require'lspconfig'.vuels.setup{
           experimental = {
             templateInterpolationService = true,
           },
-          dev = {
-            logLevel = "DEBUG",
-          },
         }
       }
     }
   }
 }
-EOF
 
-
-lua << EOF
-require'nvim-treesitter.configs'.setup{
+-- treesitter --
+require('nvim-treesitter.configs').setup{
   highlight = {
     enable = true,
   },
@@ -274,7 +273,6 @@ require'nvim-treesitter.configs'.setup{
   }
 }
 EOF
-let mapleader = " "
 
 " ~~~~~~~~~~~~~~~~~~~~~~
 " UTILITIES
@@ -344,7 +342,27 @@ inoremap <C-k> <esc>:m .-2<CR>==<insert>
 " ~~~~~~~~~~~~~~~~~~~~~~
 nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>ff :lua vim.lsp.buf.formatting_sync(nil, 5000)<CR>
+lua << EOF
+function format()
+  print('Formatting...')
+  vim.lsp.buf.format{
+    async = false,
+    timeout_ms = 6000,
+    filter = function(clients)
+      return vim.tbl_filter(
+        function(client)
+          return client.name ~= "tsserver"
+        end,
+        clients
+      )
+    end,
+  }
+  print('Formatting done')
+end
+
+vim.keymap.set('n', '<leader>ff', format)
+EOF
+"nnoremap <leader>ff :lua vim.lsp.buf.format(nil, 5000)<CR>
 nnoremap <leader>vsh :lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
@@ -367,6 +385,9 @@ nnoremap <leader>gl :diffget //3<CR>
 nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>gph :Git push origin HEAD<CR>
 nnoremap <leader>gpp :Git pull<CR>
+nnoremap <leader>gpff :Git push origin HEAD --force-with-lease<CR>
+nnoremap <leader>ge :Git log<CR>
+nnoremap <leader>go :Git log --oneline<CR>
 nnoremap <leader>gc :Git commit<CR>
 nnoremap <leader>gcc :Git checkout 
 nnoremap <leader>gcb :Git checkout -b 
@@ -398,3 +419,5 @@ nnoremap <leader>tu :! yarn test:unit -u %:p<CR>
 " EasyMotion
 map mm <Plug>(easymotion-bd-w)
 map ml <Plug>(easymotion-bd-jk)
+
+" .rafi syntax highlighting
