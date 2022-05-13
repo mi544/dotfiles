@@ -34,7 +34,7 @@ export CACA_DRIVER="ncurses"
 # find with `scanimage -L`
 export SANE_DEFAULT_DEVICE='airscan:e0:Canon TS6400 series'
 
-alias ls="exa --color=always --group-directories-first"
+alias ls="exa --color=auto --group-directories-first"
 alias ll="ls -l"
 alias la="ls -la"
 alias headn="head -n 15"
@@ -63,5 +63,6 @@ alias yarn-v="$HOME/bash-scripts/yarn/yarn-versions.sh"
 
 alias nn="neofetch"
 alias vd="vidir"
+alias o="xdg-open"
 
 PS1='[\u@\h \W]\$ '

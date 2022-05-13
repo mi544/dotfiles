@@ -145,6 +145,7 @@ vlc
 ```
 aur/tenacity-git aur/reaper-bin
 aur/deadbeef
+aur/jamesdsp
 ```
 #### Communication
 ```
