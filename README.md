@@ -25,6 +25,16 @@ capture vim lsp packages into 1 category
 !!!
 
 ## Environment
+### LSP
+```
+gopls
+```
+
+```
+volta install svelte-language-server
+volta install surge
+```
+
 ### Node
 Node versioning and global npm package management is handled through
 [Volta](https://volta.sh/)  
@@ -57,6 +67,11 @@ rustup install stable
 rustup component add rls rust-analysis rust-src
 ```
 
+### Java Environment
+```
+jre-openjdk jre-openjdk-headless jdk-openjdk openjdk-doc
+```
+
 ## Backup
 Files to back up:
 ```
@@ -68,8 +83,8 @@ TBD
 ```
 base base-devel bash-completion pacman-contrib
 linux linux-headers linux-firmware linux-zen linux-zen-headers amd-ucode 
-man-db man-pages vim sudo git
-networkmanager networkmanager-openvpn
+man-db man-pages vim sudo git stow
+networkmanager networkmanager-openvpn polkit
 bluez bluez-utils
 pipewire pipewire-docs pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire lib32-pipewire-jack wireplumber helvum gst-plugin-pipewire
 grub efibootmgr
@@ -77,19 +92,19 @@ pamixer pavucontrol
 ```
 
 ```
-adduser -m mi
 groupadd docker
+useradd -m mi
 usermod -aG wheel,audio,realtime,video,storage,docker,libvirt mi
 visudo
 ```
 
 ```
+systemctl disable systemd-resolved
 systemctl enable NetworkManager
 systemctl enable bluetooth
 systemctl enable fcron
 systemctl enable ntpd
 systemctl enable cups
-systemctl disable systemd-resolved
 systemctl enable avahi-daemon
 ```
 
@@ -100,10 +115,10 @@ systemctl enable avahi-daemon
 ### Basic System Tools, Graphics, Desktop
 ```
 aur/aura-bin
-xorg-server xorg-xinit xorg-apps xclip xdo xdotool wmctrl
+xorg-server xorg-xinit xorg-apps xclip xdo xdotool wmctrl clipit
 xf86-video-amdgpu mesa lib32-mesa vulkan-icd-loader lib32-vulkan-icd-loader vulkan-radeon lib32-vulkan-radeon
 bspwm sxhkd nitrogen unclutter
-aur/polybar aur/picom-git aurrofi-git
+polybar|aur/polybar picom|aur/picom-git rofi|aur/rofi-git
 aur/neovim-git aur/neovim-plug-git aur/efm-langserver-git
 ```
 
@@ -118,12 +133,12 @@ aur/ttf-dejavu-ib aur/ttf-nunito aur/ttf-nunito-sans
 #### Native Games
 ```
 aisleriot gnuchess knights gnome-chess aur/spacecadetpinball-git
+aur/scid aur/stockfish
 0ad 0ad-data
 ```
 #### Game Clients
 ```
 aur/airshipper
-aur/hmcl-bin
 ```
 #### Emulators
 ```
@@ -132,7 +147,7 @@ dosbox
 ```
 #### Photo
 ```
-imagemagick
+imagemagick ghostscript pdftk
 gimp
 inkscape
 ```
@@ -146,6 +161,7 @@ vlc
 aur/tenacity-git aur/reaper-bin
 aur/deadbeef
 aur/jamesdsp
+aur/cava-git aur/cli-visualizer-git
 ```
 #### Communication
 ```
@@ -175,6 +191,14 @@ aur/insomnia-bin
 aur/rustdesk-bin
 aegisub
 dbeaver
+aur/anki
+```
+
+#### Theming
+```
+xfce4-settings
+qt5ct
+nordic-theme-git nordic-kde-git
 ```
 
 ### Utils
@@ -182,12 +206,16 @@ dbeaver
 ```
 neofetch
 exa
+mitmproxy
 qrencode
+termdown
 nnn aur/vidir
 asciinema
 cool-retro-term
 cmatrix figlet lolcat asciiquarium
 aur/tealdeer-git
+s3cmd
+evtest usbutils
 ```
 
 ```
@@ -202,6 +230,7 @@ wiggle
 htop
 zip
 optipng
+copyq
 aur/mangohud-git
 aur/libspeedhack-git
 libqalculate
@@ -236,12 +265,12 @@ zathura zathura-pdf-mupdf
 rustup
 python
 screenkey
-stow
 xdg-user-dirs (and the wiki - th esetup part as well!)
 gamemode
 jq tidy yq
 aur/pup-git fq
 maria-db
+sha3sum
 ```
 
 Potentially(?):
@@ -270,4 +299,32 @@ maria-db post install process
 archivers list packages
 set XDG vars
 
-java
+
+---
+
+```shell
+iwctl
+timedatectl set-ntp true
+fdisk # efi
+.
+mkfs.ext4 # root
+mkfs.fat -F 32 # efi
+mount /dev/root /mnt
+mount --mkdir /dev/efi /mnt/boot
+reflector --sort rate --save /etc/pacman.d/mirrorlist --protocol https --latest 50 -c US,CH,SE
+pastrap /mnt ...
+arch-chroot /mnt
+vim /etc/fstab
+ln -sf /usr/share/zoneinfo/... /etc/localtime
+hwclock --systohc
+vim /etc/locale.gen
+locale-gen
+LANG=un_US.UTF8 > /etc/locale.conf
+echo ... > /etc/hostname
+vim /etc/mkinitcpio.conf
+mkinitcpio -P
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+vim /etc/default/grub
+grub-mkconfig -o /boot/grub/grub.cfg
+passwd
+```
