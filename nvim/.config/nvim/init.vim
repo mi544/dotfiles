@@ -3,8 +3,10 @@ au BufNewFile,BufRead /*.rasi setf css
 
 set scrolloff=8
 set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+"set tabstop=4 softtabstop=4
+"set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set expandtab
 set smartindent
 set guicursor=n-v-c:block
@@ -69,10 +71,14 @@ Plug 'mi544/vim-ripgrep'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'evanleck/vim-svelte'
+
 call plug#end()
 " -------------------------------
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1 " turn on case-insencitive feature
+let g:svelte_indent_script = 0 " don't indent using svelte syntax plugin
+let g:svelte_indent_style = 0 " don't indent using svelte syntax plugin
 
 set termguicolors
 colorscheme gruvbox
@@ -171,7 +177,8 @@ lsp['efm'].setup{
     languages = {
       markdown = { remark },
       json = { prettier },
-      javascript = { prettier },
+      javascript = { prettier, eslint },
+      css = { prettier },
       typescript = { eslint },
       vue = { eslint },
       php = { phpcsfixer },
@@ -182,6 +189,7 @@ lsp['efm'].setup{
     'markdown',
     'json',
     'javascript',
+    'css',
     'typescript',
     'vue',
     'php',
@@ -203,12 +211,11 @@ lsp['tsserver'].setup{
 
 lsp.bashls.setup{}
 
--- lsp.gopls.setup{
---   root_dir = util.root_pattern('go.mod', '.git'),
---   cmd = {'gopls', 'serve'}
--- }
+lsp.gopls.setup{}
 
 lsp.phpactor.setup{}
+
+lsp.svelte.setup{}
 
 lsp.pylsp.setup{}
 
@@ -357,7 +364,7 @@ function format()
       )
     end,
   }
-  print('Formatting done')
+  print('Formatting complete')
 end
 
 vim.keymap.set('n', '<leader>ff', format)
@@ -368,12 +375,12 @@ nnoremap <leader>vrr :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>vh :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>vc :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>vl :lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
-nnoremap <leader>vn :lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <leader>vl :lua vim.diagnostic.show_line_diagnostics()<CR>
+nnoremap <leader>vn :lua vim.diagnostic.goto_next()<CR>
 "what is it?
 "nnoremap <leader>vll :call LspLocationList()<CR>
 
-nnoremap <leader>ld :lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <leader>ld :lua vim.diagnostic.set_loclist()<CR>
 inoremap <silent><expr> <C-CR> compe#confirm('<CR>')
 
 " ~~~~~~~~~~~~~~~~~~~~~~

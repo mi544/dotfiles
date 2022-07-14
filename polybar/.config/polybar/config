@@ -1,11 +1,11 @@
 [colors]
 text = #fffff
-background = #005c5c
-background-bar-alt = #25c7ad
-background-bar = #cbbae0
-foreground = #f5ffff
-foreground-inversed = #112
-active = #52ffff
+background = #5c6bc0
+background-bar-alt = #7e57c2
+background-bar = #42a5f5
+foreground = #c7c8cb
+foreground-inversed = #cccccc
+active = #7e57c2
 alert = #d23b22
 
 [settings]
@@ -103,7 +103,7 @@ time = " %l:%M %p"
 interval = 1
 label = "%date%%time%"
 format-background = ${colors.background-bar}
-format-foreground = ${colors.foreground-inversed}
+format-foreground = ${colors.foreground}
 format-padding = 3
 
 [module/pulseaudio]
@@ -114,7 +114,7 @@ click-right = pavucontrol
 format-volume = <label-volume>
 format-muted = <label-muted>
 format-volume-background = ${colors.background-bar}
-format-volume-foreground = ${colors.foreground-inversed}
+format-volume-foreground = ${colors.foreground}
 label-volume = "  %percentage%%  "
 label-muted = "     M     "
 label-muted-foreground = ${colors.alert}
@@ -132,13 +132,13 @@ type = custom/text
 content-background = ${colors.background-bar-alt}
 content-foreground = ${colors.text}
 content-padding = 0
-content = "       "
+content = "   "
 
 [module/cl-2]
 type = custom/text
 content-background = ${colors.background-bar-alt}
 content-foreground = ${colors.text}
 content-padding = 0
-content = "         "
+content = "     "
 
 ; vim:ft=dosini

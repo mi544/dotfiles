@@ -33,6 +33,6 @@ set index-active-fg "#282828"
 
 set recolor
 
-map [normal] d scroll half-down
+#map [normal] d scroll half-down
 map [normal] <C-d> toggle_page_mode
 map [normal] u scroll half-up

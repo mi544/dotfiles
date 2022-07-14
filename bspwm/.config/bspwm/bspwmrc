@@ -5,9 +5,10 @@ sleep 1
 pgrep -x sxhkd > /dev/null || sxhkd &
 fcitx5 -rd &
 $HOME/.config/polybar/launch.sh &
-picom --experimental-backends &
+#picom --experimental-backends &
 $HOME/bash-scripts/wallpapers/change-wallpaper.sh &
 gummy start && gummy -t 3400
+clipit --daemon --no-icon &
 
 mouse_id_list="$(xinput | grep "$MOUSE"'.*pointer.*' | sed 's/.*id=\([0-9]\+\)[[:space:]].*/\1/')"
 mouse_id_list=$(echo $mouse_id_list)
@@ -69,6 +70,7 @@ bspc rule -a 'Deadbeef' state=pseudo_tiled
 bspc rule -a 'LibreWolf:Devtools' state=floating
 bspc rule -a 'LibreWolf:Toolkit:Picture-in-Picture' state=floating sticky=on focus=off
 bspc rule -a 'Nitrogen' state=floating
+bspc rule -a 'Java' state=floating
 bspc rule -a 'DBeaver' state=floating
 bspc rule -a 'Pavucontrol' state=floating
 bspc rule -a 'openrgb' state=floating
@@ -81,6 +83,7 @@ bspc rule -a 'Cypress' state=floating
 #bspc rule -a 'mpv' state=fullscreen
 bspc rule -a 'zoom' state=floating
 bspc rule -a 'jamesdsp' state=floating
+bspc rule -a 'Bottles' state=floating
 
 # adjusts cursor on root screen
 xsetroot -cursor_name left_ptr &
