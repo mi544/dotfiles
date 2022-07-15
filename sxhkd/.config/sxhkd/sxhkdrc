@@ -107,8 +107,8 @@ super + shift + d
   xdotool mousemove 1808 106 && xdotool click 1 &
 
 # autoclick
-super + c
-  $HOME/bash-scripts/utils/autoclick-x-times.sh 50
+#super + c
+#  $HOME/bash-scripts/utils/autoclick-x-times.sh 50
 
 ###################
 ### APP ACTIONS ###
@@ -175,6 +175,10 @@ super + shift + q
 
 super + ctrl + shift + q
   xbacklight -set 1
+
+# Bluetooth Speaker
+super + l
+  $HOME/bash-scripts/audio/reconnect-bluetooth-speaker.sh
 
 #####################
 ### APP SHORTCUTS ###
