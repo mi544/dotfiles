@@ -1,0 +1,5 @@
+SHELL=/bin/bash
+DISPLAY=':0' 
+
+0 */1 * * * /home/mi/bash-scripts/wallpapers/change-wallpaper.sh next
+0 */4 * * * tldr --update
