@@ -115,11 +115,12 @@ systemctl enable avahi-daemon
 ### Basic System Tools, Graphics, Desktop
 ```
 aur/aura-bin
-xorg-server xorg-xinit xorg-apps xclip xdo xdotool wmctrl clipit
+xorg-server xorg-xinit xorg-apps xclip xdo xdotool wmctrl
+aur/clipit
 xf86-video-amdgpu mesa lib32-mesa vulkan-icd-loader lib32-vulkan-icd-loader vulkan-radeon lib32-vulkan-radeon
 bspwm sxhkd nitrogen unclutter
 polybar|aur/polybar picom|aur/picom-git rofi|aur/rofi-git
-aur/neovim-git aur/neovim-plug-git aur/efm-langserver-git
+neovim|aur/neovim-git aur/neovim-plug-git aur/neovim-symlinks aur/efm-langserver-git
 ```
 
 ### Fonts
@@ -204,6 +205,7 @@ nordic-theme-git nordic-kde-git
 ### Utils
 ### Terminal
 ```
+openssh
 neofetch
 exa
 mitmproxy
@@ -255,7 +257,6 @@ ufw
 composer
 docker docker-compose docker-machine
 fcitx5 fcitx5-anthy fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-nord fcitx5-table-other
-aur/gammy-git
 ripgrep
 pass pass-otp
 aur/youtube-dl-git aur/yt-dlp-git aur/phantomjs-bin
@@ -327,4 +328,8 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 vim /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 passwd
+```
+
+```
+LC_ALL=C.UTF-8 xdg-user-dirs-update --force
 ```
