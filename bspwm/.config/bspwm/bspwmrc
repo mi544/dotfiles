@@ -70,6 +70,7 @@ bspc rule -a 'Deadbeef' state=pseudo_tiled
 bspc rule -a 'LibreWolf:Devtools' state=floating
 bspc rule -a 'LibreWolf:Toolkit:Picture-in-Picture' state=floating sticky=on focus=off
 bspc rule -a 'Nitrogen' state=floating
+bspc rule -a 'qimgv' state=fullscreen
 bspc rule -a 'Java' state=floating
 bspc rule -a 'DBeaver' state=floating
 bspc rule -a 'Pavucontrol' state=floating

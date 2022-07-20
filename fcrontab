@@ -1,5 +1,6 @@
 SHELL=/bin/bash
 DISPLAY=':0' 
 
-0 */1 * * * /home/mi/bash-scripts/wallpapers/change-wallpaper.sh next
+*/15 * * * * /home/mi/bash-scripts/wallpapers/change-wallpaper.sh next
 0 */4 * * * tldr --update
+0 */4 * * * cd /home/mi/dotfiles && git pull
