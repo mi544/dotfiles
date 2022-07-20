@@ -158,27 +158,42 @@ super + ctrl + shift + semicolon
 
 # Increase brightness
 super + o
-  xbacklight -inc 2
+  brightnessctl -d 'intel_backlight' set +2%
 
 super + shift + o
-  xbacklight -inc 10
-
+  brightnessctl -d 'intel_backlight' set +10%
+  
 super + ctrl + shift + o
-  xbacklight -set 100
+  brightnessctl -d 'intel_backlight' set 100%
 
 # Decrease brightness
 super + q
-  xbacklight -dec 2
+  brightnessctl -d 'intel_backlight' set 2%-
 
 super + shift + q
-  xbacklight -dec 10
+  brightnessctl -d 'intel_backlight' set 10%-
 
 super + ctrl + shift + q
-  xbacklight -set 1
+  brightnessctl -d 'intel_backlight' set 0%
 
 # Bluetooth Speaker
 super + l
   $HOME/bash-scripts/audio/reconnect-bluetooth-speaker.sh
+
+# orientation
+super + ctrl + Down
+  $HOME/bash-scripts/screen/rotate-screen.sh landscape
+
+super + ctrl + Up
+  $HOME/bash-scripts/screen/rotate-screen.sh landscape-inverse
+
+super + ctrl + Right
+  $HOME/bash-scripts/screen/rotate-screen.sh portrait-right
+
+super + ctrl + Left
+  $HOME/bash-scripts/screen/rotate-screen.sh portrait-left
+
+
 
 #####################
 ### APP SHORTCUTS ###
@@ -199,10 +214,6 @@ super + m
 # st terminal (backup)
 super + z
   st
-
-# Qalc
-super + q
-  alacritty --class qalc -e qalc
 
 # Random video in terminal
 super + bracketright
