@@ -89,6 +89,7 @@ bluez bluez-utils
 pipewire pipewire-docs pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire lib32-pipewire-jack wireplumber helvum gst-plugin-pipewire
 grub efibootmgr
 pamixer pavucontrol
+pass
 ```
 
 ```
@@ -112,12 +113,22 @@ systemctl enable avahi-daemon
 # Uncomment lib32 in pacman.conf
 ```
 
+### Touchscreen Setup
+```
+xf86-input-evdev
+```
+### LED
+```
+brightnessctl
+```
+
 ### Basic System Tools, Graphics, Desktop
 ```
 aur/aura-bin
 xorg-server xorg-xinit xorg-apps xclip xdo xdotool wmctrl
 aur/clipit
 xf86-video-amdgpu mesa lib32-mesa vulkan-icd-loader lib32-vulkan-icd-loader vulkan-radeon lib32-vulkan-radeon
+xf86-video-intel mesa lib32-mesa vulkan-intel lib32-vulkan-intel
 bspwm sxhkd nitrogen unclutter
 polybar|aur/polybar picom|aur/picom-git rofi|aur/rofi-git
 neovim|aur/neovim-git aur/neovim-plug-git aur/neovim-symlinks aur/efm-langserver-git
@@ -159,6 +170,7 @@ vlc
 ```
 #### Audio
 ```
+easyeffects yelp
 aur/tenacity-git aur/reaper-bin
 aur/deadbeef
 aur/jamesdsp
