@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 
 # removing all current symlinks/files
-find . | grep -v '.git' | grep ".config/" | sed "s|.*\(\.config.*\)|$HOME/\1|g" | xargs rm -rf
+# tbd
 
-# stowing everything from this directory
-ls -I 'README.md|stow.sh|fcrontab' | xargs stow -v
+# cd into dotfiles directory
+cd "$(dirname $0)"
+
+# stow user folders
+find . -maxdepth 1 -type d | \
+  tail -n +2 | \
+  rg -v 'bin$|.git$' | \
+  perl -pe 's#./##' | \
+  xargs stow -v
+
+# stowing root folders
+sudo stow --target=/ bin
