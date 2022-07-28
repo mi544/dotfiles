@@ -1,33 +1,35 @@
 #!/usr/bin/env bash
 
-sleep 1
 ### AUTOSTART ###
+gummy start && gummy -t 3400
+$HOME/.config/polybar/launch.sh &
+$HOME/bash-scripts/wallpapers/change-wallpaper.sh &
 pgrep -x sxhkd > /dev/null || sxhkd &
 fcitx5 -rd &
-$HOME/.config/polybar/launch.sh &
-#picom --experimental-backends &
-$HOME/bash-scripts/wallpapers/change-wallpaper.sh &
-gummy start && gummy -t 3400
 clipit --daemon --no-icon &
+#picom --experimental-backends &
 
-mouse_id_list="$(xinput | grep "$MOUSE"'.*pointer.*' | sed 's/.*id=\([0-9]\+\)[[:space:]].*/\1/')"
-mouse_id_list=$(echo $mouse_id_list)
-for mouse_id in $mouse_id_list; do
-    xinput set-prop "$mouse_id" 308 0
-done
+# adjusts cursor on root screen
+$(sleep 1; xsetroot -cursor_name left_ptr) &
 
-#xinput list-props 'Wireless Controller Touchpad' | rg '.*Tapping Enabled \((\d+)\).*' -r '$1'
-xinput set-prop 'Wireless Controller Touchpad' 307 0.5
-xinput set-prop 'Wireless Controller Touchpad' 568 1
-xinput set-prop 'Wireless Controller Touchpad' 296 1
-
-xinput set-prop 'Sony Interactive Entertainment Wireless Controller Touchpad' 307 0.5
-xinput set-prop 'Sony Interactive Entertainment Wireless Controller Touchpad' 568 1
-xinput set-prop 'Sony Interactive Entertainment Wireless Controller Touchpad' 296 1
-
-xrandr --newmode $MODE_P_CVT
-xrandr --addmode $MONITOR_P \""$MODE_P_NAME"\"
-xrandr --output "$MONITOR_P" --mode \""$MODE_P_NAME"\"
+# mouse_id_list="$(xinput | grep "$MOUSE"'.*pointer.*' | sed 's/.*id=\([0-9]\+\)[[:space:]].*/\1/')"
+# mouse_id_list=$(echo $mouse_id_list)
+# for mouse_id in $mouse_id_list; do
+#     xinput set-prop "$mouse_id" 308 0
+# done
+# 
+# #xinput list-props 'Wireless Controller Touchpad' | rg '.*Tapping Enabled \((\d+)\).*' -r '$1'
+# xinput set-prop 'Wireless Controller Touchpad' 307 0.5
+# xinput set-prop 'Wireless Controller Touchpad' 568 1
+# xinput set-prop 'Wireless Controller Touchpad' 296 1
+# 
+# xinput set-prop 'Sony Interactive Entertainment Wireless Controller Touchpad' 307 0.5
+# xinput set-prop 'Sony Interactive Entertainment Wireless Controller Touchpad' 568 1
+# xinput set-prop 'Sony Interactive Entertainment Wireless Controller Touchpad' 296 1
+# 
+# xrandr --newmode $MODE_P_CVT
+# xrandr --addmode $MONITOR_P \""$MODE_P_NAME"\"
+# xrandr --output "$MONITOR_P" --mode \""$MODE_P_NAME"\"
 
 ### MONITORS ###
 bspc monitor -d 2 3 4 7 8 9 0 -
@@ -85,6 +87,3 @@ bspc rule -a 'Cypress' state=floating
 bspc rule -a 'zoom' state=floating
 bspc rule -a 'jamesdsp' state=floating
 bspc rule -a 'Bottles' state=floating
-
-# adjusts cursor on root screen
-xsetroot -cursor_name left_ptr &
