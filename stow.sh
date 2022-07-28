@@ -3,7 +3,7 @@
 init_pwd="$(pwd)"
 
 # removing all current symlinks/files
-# tbd
+#tbd
 
 # cd into dotfiles directory
 cd "$(dirname $0)"
@@ -11,20 +11,23 @@ cd "$(dirname $0)"
 # stow user folders
 find . -maxdepth 1 -type d | \
   tail -n +2 | \
-  rg -v 'bin$|.git$' | \
-  perl -pe 's#./##' | \
+  perl -pe 's#^./##' | \
+  rg -v '^.git$|^_udev$|^_xorg$' | \
   xargs stow -v
 
-# stowing root folders
-sudo stow --target=/ bin
+# stow / folders
+sudo stow --target=/ _xorg
+sudo stow --target=/ _udev
 
 # create symlinks
+sudo mkdir -p /usr/local/bin
 cd /usr/local/bin
 sudo ln -sf "$HOME/projects/tools/php-cs-fixer/vendor/bin/php-cs-fixer" php-cs-fixer
 sudo ln -sf "$HOME/projects/tools/phpactor/bin/phpactor" phpactor
 sudo ln -sf "$HOME/projects/tools/rofi-pass/rofi-pass" rofi-pass
 sudo ln -sf "$HOME/bash-scripts/yt/yt-download.sh" ytdv
 sudo ln -sf "$HOME/bash-scripts/yt/ll-download.sh" ytll
+sudo ln -sf "$HOME/bash-scripts/yt/ytmpv.sh" vv
 sudo ln -sf "$HOME/projects/tools/ff2mpv/ff2mpv.py" ff2mpv
 
 cd "$init_pwd"

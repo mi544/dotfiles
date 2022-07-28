@@ -1,0 +1,12 @@
+# /proc/bus/input/device
+# /usr/include/linux/input-event-codes.h
+#I: Bus=0003 Vendor=048d Product=8911 Version=0111
+# evdev:input:b<bus_id>v<vendor_id>p<product_id>e<version_id>-<modalias>
+
+evdev:input:b*v048Dp8911*
+  KEYBOARD_KEY_70039=esc
+  KEYBOARD_KEY_70046=leftmeta
+  KEYBOARD_KEY_7004b=home
+  KEYBOARD_KEY_7004a=pageup
+  KEYBOARD_KEY_7004e=end
+  KEYBOARD_KEY_7004d=pagedown
