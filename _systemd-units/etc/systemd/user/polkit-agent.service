@@ -1,0 +1,8 @@
+[Unit]
+Description=Polkit Agent (polkit-dumb-agent)
+
+[Service]
+ExecStart=polkit-dumb-agent
+
+[Install]
+WantedBy=default.target

@@ -110,6 +110,10 @@ systemctl enable avahi-daemon
 ```
 
 ```
+systemctl --user enable polkit-agent
+```
+
+```
 # Uncomment lib32 in pacman.conf
 ```
 
@@ -132,6 +136,7 @@ xf86-video-intel mesa lib32-mesa vulkan-intel lib32-vulkan-intel
 bspwm sxhkd nitrogen unclutter
 polybar|aur/polybar picom|aur/picom-git rofi|aur/rofi-git
 neovim|aur/neovim-git aur/neovim-plug-git aur/neovim-symlinks aur/efm-langserver-git
+aur/polkit-dumb-agent-git
 ```
 
 ### Fonts
