@@ -12,13 +12,14 @@ cd "$(dirname $0)"
 find . -maxdepth 1 -type d | \
   tail -n +2 | \
   perl -pe 's#^./##' | \
-  rg -v '^.git$|^_udev$|^_xorg$|^_systemd-units$' | \
+  rg -v '^.git$|^_udev$|^_xorg$|^_systemd-units$|^_cursors$' | \
   xargs stow -v
 
 # stow / folders
 sudo stow --target=/ _xorg
 sudo stow --target=/ _udev
 sudo stow --target=/ _systemd-units
+sudo stow --target=/ _cursors
 
 # create symlinks
 sudo mkdir -p /usr/local/bin
