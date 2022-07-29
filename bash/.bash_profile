@@ -3,7 +3,8 @@ export VISUAL='vim'
 export EDITOR='vim'
 export QT_QPA_PLATFORMTHEME='qt5ct'
 
-export MONITOR='DisplayPort-0'
+export MONITOR='DSI1'
+export RESOLUTION='1200x800'
 #old modeline settings (to be deleted)
 #export MODE_P_NAME='1920x1080-165Hz'
 #export MODE_P_CVT=$(cvt 1920 1080 164.92 | sed '1d' | sed -r 's#Modeline\s+".*"(.*)$#'\""$MODE_P_NAME"\"\\1'#')

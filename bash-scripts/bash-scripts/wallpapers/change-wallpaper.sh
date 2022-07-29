@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 direction="$1"
-
 wp_list_path="$HOME/.config/wallpapers.list"
-cfg_path="$HOME/.config/nitrogen/bg-saved.cfg"
 
 if ! [ -e "$wp_list_path" ]; then
     "$(dirname "$0")/generate-random-wallpaper-list.sh"
@@ -15,13 +13,13 @@ line_num=$(( wp_current + 2))
 
 if [ "$direction" = 'prev' ]; then 
     if [[ $wp_current -le 1 ]]; then
-        nitrogen --set-zoom-fill --restore
+        nitrogen --restore
         exit 0
     fi
     line_num_next=$(( wp_current - 1 ))
 elif [ "$direction" = 'next' ]; then
     if [[ $wp_current -ge $wp_total ]]; then
-        nitrogen --set-zoom-fill --restore
+        nitrogen --restore
         exit 0
     fi
     line_num_next=$(( wp_current + 1 ))
@@ -30,9 +28,6 @@ else
 fi
 
 wp_path=$(sed "${line_num}q;d" "$wp_list_path")
-
-sed -i "s#file=.*#file=${wp_path}#" "$cfg_path"
-
+wallpaper="$($(dirname "$0")/generate-compatible-image.sh $wp_path)"
 sed -i "2s/.*/${line_num_next}/" "$wp_list_path"
-
-nitrogen --set-zoom-fill --restore
+nitrogen --set-zoom --save "$wallpaper"
