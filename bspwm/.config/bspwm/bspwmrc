@@ -7,7 +7,7 @@ $HOME/bash-scripts/wallpapers/change-wallpaper.sh &
 pgrep -x sxhkd > /dev/null || sxhkd &
 fcitx5 -rd &
 clipit --daemon --no-icon &
-#picom --experimental-backends &
+picom --experimental-backends &
 
 # adjusts cursor on root screen
 $(sleep 1; xsetroot -cursor_name left_ptr) &
@@ -35,7 +35,7 @@ $(sleep 1; xsetroot -cursor_name left_ptr) &
 bspc monitor -d 2 3 4 7 8 9 0 -
 
 ### BSPWM configuration ###
-bspc config border_width 3
+bspc config border_width 1
 bspc config window_gap 3
 bspc config top_padding 32.5
 bspc config bottom_padding 0
