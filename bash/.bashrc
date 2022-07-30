@@ -16,8 +16,8 @@ alias path="echo $PATH | sed -r 's/:/\n/g'"
 alias dvterm="$HOME/bash-scripts/utils/download-video-for-terminal.sh"
 alias pvterm="$HOME/bash-scripts/utils/terminal-play-video.sh $1"
 alias vdl="yt-dlp --downloader aria2c --downloader-args 'aria2c:-c -j 8 -s 8 -x 8 -k 1M'"
-alias ytmpv='mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --msg-level=all=no,ytdl_hook=trace'
-alias ytmpva='mpv --no-config --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format=bestaudio --msg-level=all=no,ytdl_hook=trace'
+alias vv="mpv --fs --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format='bv*[vbr<=900][vcodec!=vp9][height<1080][fps<=40]+ba/b[vbr<=900][vcodec!=vp9][height<1080][fps<=40] / bv*[height<=480]+ba/b[height=480] / wv*+ba/w' --msg-level=all=no,ytdl_hook=trace"
+alias va='mpv --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-format=bestaudio --msg-level=all=no,ytdl_hook=trace'
 alias dfile='aria2c -c -j 8 -s 8 -x 8 -k 1M'
 alias dfilef='aria2c -c -s 499 -x 499 -k 1M -j 1'
 alias c="$HOME/bash-scripts/utils/capture-no-audio.sh"

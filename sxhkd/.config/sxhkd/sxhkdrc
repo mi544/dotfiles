@@ -133,7 +133,7 @@ super + i
 super + u
   $HOME/bash-scripts/wallpapers/change-wallpaper.sh prev
 # random wallpaper -> generate list
-super + shift + i
+ctrl + super + i
   $HOME/bash-scripts/wallpapers/generate-random-wallpaper-list.sh
 
 # Raise volume
